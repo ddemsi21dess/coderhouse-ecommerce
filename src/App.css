@@ -47,8 +47,8 @@ body {
   font-size: 18px;
   margin: 0 10px;
   line-height: 65px;
-  /* text-transform: uppercase; */
   width: max-content;
+  height: 65px;
 }
 
 .nav-menu-link {
