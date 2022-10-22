@@ -6,14 +6,14 @@
 body {
   font-family: sans-serif;
   padding: 90px 20px 0;
+  background-color: #ddd;
 }
 
 .company-name{
-  font-style: italic;
+  font-size:35px !important;
 }
 .header {
-  /* background-color: #2b45c5; */
-  
+  /* background-color: #2b45c5;   */
   background-color: black;
   height: 65px;
   position: fixed;
@@ -52,8 +52,9 @@ body {
 }
 
 .nav-menu-link {
-  padding: 8px 12px;
-  border-radius: 3px;
+  padding: 15px 15px 15px 15px;
+  margin:0;
+  /* border-radius: 3px; */
 }
 
 .nav-menu-link:hover,
@@ -62,15 +63,68 @@ body {
   transition: 0.5s;
 }
 
-/* TOGGLE */
-.nav-toggle {
-  color: white;
-  background: none;
-  border: none;
-  font-size: 30px;
-  padding: 0 20px;
-  line-height: 65px;
-  cursor: pointer;
 
-  display: none;
+.dropdown{
+  top:80px;
+  display: flex;
+  margin: 0 auto;
+  border: 1px solid #034574;
+  width: 100px;
+
+}
+
+.dropdown-item{
+  line-height: 50px;
+  list-style: none;
+  width: max-content;
+  text-align: center;
+}
+
+hr{
+  width:98px;
+  margin-left:-40px;
+}
+
+.input-search{
+  height:35px;
+  width: 250px;
+  background-color: #eee;  
+  border: none; /* <-- This thing here */
+  border-top-left-radius: 5px;
+  border-end-start-radius: 5px;
+
+}
+
+.input-search::placeholder {
+  text-align: center; 
+  
+}
+
+.input-search:focus{
+  outline: none !important;
+  border:2px solid #719ECE;;
+  box-shadow: 0 0 10px #719ECE;
+}
+.search-button{
+  height: 35px;
+  margin-left:0px;
+  border:1px solid #034574;
+  border-left:1px solid #ccc;
+  border-radius: 2px;
+  width: 40px;
+  background-color: #034574;
+  color:white;
+  cursor: pointer;
+}
+
+.search-button:hover{
+  background-color: #719ECE;
+  border: 2px solid #034574;
+  border-radius: 2px;
+}
+
+.user-name{
+  font-size: 20px;
+  line-height: 65px;
+  color:#ccc;
 }
