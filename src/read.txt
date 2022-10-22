@@ -1,0 +1,3 @@
+#Brand --> QB Store
+
+#Categorías --> Televisiores, Celulares, Climatización, Heladeras y Herramientas.
