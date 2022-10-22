@@ -16,9 +16,11 @@ export const NavbarItem = ({name,id,onHandleSelectedItem,activeId}) => {
 
   return (
     <>
-      <li className={`nav-menu-item ${active ? 'nav-menu-link_active' : ''}`}  key={id} onClick={onHandleClick}>
-        <a href="#" className="nav-menu-link nav-link">{name}</a>
+      <li className={`nav-menu-item ${active ? 'nav-menu-link_active' : ''}`}  key={id.toString()} onClick={onHandleClick}>
+        <a href={"#"} className="nav-menu-link nav-link">{name}</a>
       </li>
     </>
   )
 }
+
+export default NavbarItem;

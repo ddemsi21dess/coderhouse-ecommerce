@@ -10,14 +10,14 @@ body {
 }
 
 .header {
-  /* background-color: #2b45c5;   */
-  background-color: black;
+  background-color: black;  /*#2b45c5;*/
   height: 65px;
   position: fixed;
   width: 100%;
   top: 0;
   left: 0;
 }
+
 
 .nav {
   display: flex;
@@ -45,51 +45,45 @@ body {
 }
 
 .nav-menu-link {
-  padding: 15px 15px 15px 15px;
+  padding: 15px;
   margin:0;
-  /* border-radius: 3px; */
 }
 
 .nav-menu-link:hover,
 .nav-menu-link_active {
   background-color: #034574;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 
 
+/*sidebar*/
 
+.sidebar{
+  top:65px;
+  height: calc(100vh - 65px);
+  width:250px;
+  position: fixed;
+  left: 0;
+  border-right: 3px solid #ccc;
+  background-color: white;
+  display: flex;
+  justify-content:center;
+}
 
+.category-name{
+  margin-top:5px;
+  font-size: 20px;
+  color:rgb(93, 88, 88);
+}
 
-
-
+/*navbar content items*/
 .logo {
   height:65px;
 }
 
 .company-name{
   font-size:35px !important;
-}
-
-.dropdown{
-  top:80px;
-  display: flex;
-  margin: 0 auto;
-  border: 1px solid #034574;
-  width: 100px;
-
-}
-
-.dropdown-item{
-  line-height: 50px;
-  list-style: none;
-  width: max-content;
-  text-align: center;
-}
-
-hr{
-  width:98px;
-  margin-left:-40px;
 }
 
 .input-search{
