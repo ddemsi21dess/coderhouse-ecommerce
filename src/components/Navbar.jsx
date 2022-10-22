@@ -1,6 +1,4 @@
 import React from 'react'
-import { DropdownItem } from './DropdownItem';
-
 import { NavbarItem } from './NavbarItem';
 
 const menuItems = [
@@ -39,11 +37,7 @@ export const Navbar = () => {
                 <ul className="nav-menu">
                 {
                     menuItems.map(item =>(                 
-                    // <li className={`nav-menu-item ${item.isActive ? 'nav-menu-link_active' : ''}`} key={item.id} >
-                    //   <a href="#" className="nav-menu-link nav-link">{item.name}</a>
-                    // </li>
-                    // <NavbarItem name={item.name} id={item.id} isActive={item.isActive}  onHandleClickItem={onHandleClickItem}/>
-                    <NavbarItem name={item.name} id={item.id} onHandleSelectedItem={onHandleSelectedItem} activeId={activeId}/>
+                        <NavbarItem name={item.name} id={item.id} onHandleSelectedItem={onHandleSelectedItem} activeId={activeId}/>
                     ))
                 }              
                 </ul>

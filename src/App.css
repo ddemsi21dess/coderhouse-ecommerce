@@ -9,9 +9,6 @@ body {
   background-color: #ddd;
 }
 
-.company-name{
-  font-size:35px !important;
-}
 .header {
   /* background-color: #2b45c5;   */
   background-color: black;
@@ -31,10 +28,6 @@ body {
 .nav-link {
   color: white;
   text-decoration: none;
-}
-
-.logo {
-  height:65px;
 }
 
 .nav-menu {
@@ -63,6 +56,20 @@ body {
   transition: 0.5s;
 }
 
+
+
+
+
+
+
+
+.logo {
+  height:65px;
+}
+
+.company-name{
+  font-size:35px !important;
+}
 
 .dropdown{
   top:80px;
