@@ -64,7 +64,7 @@ export const Navbar = () => {
                         <button className='search-button'>Ir</button>
                     </li>
                     <li className="nav-menu-item " key='login'>                        
-                        <a href="#" className="nav-link user-name">Ingresar</a>
+                        <a href="#" className="nav-link user-name">Cuenta</a>
                     </li>
                 </ul>
             </nav>

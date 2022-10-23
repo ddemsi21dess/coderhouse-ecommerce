@@ -32,7 +32,6 @@ body {
 
 .nav-menu {
   display: flex;
-  margin-right: 40px;
   list-style: none;
 }
 
