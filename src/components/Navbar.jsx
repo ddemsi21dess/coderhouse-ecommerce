@@ -34,7 +34,7 @@ export const Navbar = () => {
                 <ul className="nav-menu">
                     <li className="nav-menu-item" key='logo'>
                         <a href="#" className="logo nav-link">
-                            <img src= './logo512.png' alt='logo' className='logo' />    
+                            <img src= './logo.png' alt='logo' className='logo' />    
                         </a>
                     </li>
                 
@@ -50,6 +50,7 @@ export const Navbar = () => {
                         <NavbarItem 
                             name={item.name} 
                             id={item.id} 
+                            key={item.id}
                             onHandleSelectedItem={onHandleSelectedItem} 
                             activeId={activeId}/>
                     ))
