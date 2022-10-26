@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavbarItem } from './NavbarItem';
 import { Sidebar } from './Sidebar';
 
@@ -14,8 +14,8 @@ const menuItems = [
 
 export const Navbar = () => {
 
-  const [activeId, setActiveId] = React.useState(null);
-  const [activeName, setActiveName] = React.useState('');
+  const [activeId, setActiveId] = useState(null);
+  const [activeName, setActiveName] = useState('');
 
   const onHandleSelectedItem = (id) => {
     setActiveId(id);

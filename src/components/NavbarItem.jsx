@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const NavbarItem = ({name,id,onHandleSelectedItem,activeId}) => {
-
-  const [active, setActive] = React.useState(false);
+  
+  const [active, setActive] = useState(false);
 
   const onHandleClick = () =>{
     onHandleSelectedItem(id);
