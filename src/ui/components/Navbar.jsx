@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { ItemListContainer } from '../../components';
+import { CartWidget } from './CartWidget';
 import { NavbarItem } from './NavbarItem';
 import { Sidebar } from './Sidebar';
 
@@ -76,9 +77,14 @@ export const Navbar = () => {
                         <input className='input-search' placeholder='Buscar' type='text'></input>
                         <button className='search-button'>Ir</button>
                     </li>
-                    <li className="nav-menu-item " key='login'>                        
-                        <a href="#" className="nav-link user-name">Cuenta</a>
+                    <li className="nav-menu-item ">
+                        <CartWidget products={100}/>
                     </li>
+                    <li className="nav-menu-item " key='login'>                        
+                        {/* <a href="#" className="nav-link user-name">Cuenta</a>        */}
+                        <img src='/login.png' alt='login' className='login-img' />              
+                    </li>
+                    
                 </ul>
             </nav>
         </header>

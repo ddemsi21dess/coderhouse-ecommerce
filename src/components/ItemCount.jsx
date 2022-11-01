@@ -21,12 +21,15 @@ export const ItemCount = ({minBuyOrder = 1, stockValue = undefined }) => {
     
   }
 
-  const onChangeProducts = () =>{
-    
+  const onChangeProducts = (e) => {     
+    const re = /^[0-9\b]+$/;
+    if (e.target.value === '' || re.test(e.target.value)) {        
+        setCounter(e.target.value);
+    }
   }
 
   const onAddProducts = () =>{
-     console.log("Add Products",counter);
+     
   }
   return (
     <>

@@ -6,7 +6,7 @@
   body {
     font-family: sans-serif;
     padding: 90px 20px 0;
-    background-color: #ddd;
+    background-color: white;
   }
   
   .header {
@@ -191,7 +191,11 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  
+  .add-product:hover{    
+    background-color: #719ECE;
+    border: 2px solid #034574;
+    border-radius: 2px;
+  }
   /*--------------------*/
   /* Product container */
   /*--------------------*/
@@ -242,4 +246,55 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+  }
+
+  /*------------*/
+  /*-- Loader ---*/
+  /*------------*/
+  .loading-gif{
+    text-align: center;
+  }
+
+  .loading-label{
+    text-align: center;
+    font-size: 24px;
+    font-family: sans-serif;    
+  }
+
+  /*------------*/
+  /*-- Cart Widget ---*/
+  /*------------*/
+  .cart-widget{
+    display: flex;
+    justify-content: space-around;
+  }
+  .cart-widget-label{
+    color:white;
+    margin-top:6px;
+    font-size: 20px;
+  }
+  .cart-img{
+    width: 40px;
+    height:40px;
+    margin-top:-5px;
+
+  }
+
+  .cart-button{
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    margin-left:0px;
+    margin-top:13px;
+    border:2px solid #154361;
+    border-radius: 2px;
+    width: 90px;
+    background-color: black;
+    color:white;
+    cursor: pointer;
+  }
+
+  .login-img{
+    height:55px;
+    margin-top:4px;
   }
