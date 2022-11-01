@@ -1,31 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { ItemListContainer } from '../../components';
 import { NavbarItem } from './NavbarItem';
 import { Sidebar } from './Sidebar';
 
 const menuItems = [
-    {id:'1',name:'Televisores'  , url:'categorias/televisores'},
-    {id:'2',name:'Celulares'    , url:'categorias/celulares'},
-    {id:'3',name:'Climatización', url:'categorias/climatización'},
-    {id:'4',name:'Heladeras'    , url:'categorias/heladeras'},
-    {id:'5',name:'Herramientas' , url:'categorias/herramientas'},
+    
+    {id:'100' ,type:'all'          ,name:'Ofertas'          , url:'categorias/all'},
+    {id:'1'   ,type:'tv'           ,name:'Televisores'  , url:'categorias/televisores'},
+    {id:'2'   ,type:'phone'        ,name:'Celulares'    , url:'categorias/celulares'},
+    {id:'3'   ,type:'air'          ,name:'Climatización', url:'categorias/climatización'},
+    {id:'4'   ,type:'refrigerator' ,name:'Heladeras'    , url:'categorias/heladeras'},
+    {id:'5'   ,type:'tool'         ,name:'Herramientas' , url:'categorias/herramientas'},
   ]
   
   
 
 export const Navbar = () => {
 
-  const [activeId, setActiveId] = React.useState(null);
-  const [activeName, setActiveName] = React.useState('');
+  const [activeId, setActiveId] = useState(undefined);
+  const [activeName, setActiveName] = useState('');
+  const [activeType, setActiveType] = useState(undefined);
 
   const onHandleSelectedItem = (id) => {
+  
     setActiveId(id);
     
-    let name =  menuItems.filter((item)=> item.id === id)[0].name;
+    const {name,type} =  menuItems.filter((item)=> item.id === id)[0];
+
     setActiveName(name);
+    if (name === 'Ofertas') {
+        setActiveType(undefined);
+        return;
+    }
+
+    setActiveType(type);
   }
   return (
     <>            
-        <Sidebar name= {activeName}/>
+        {/* <Sidebar name= {activeName}/> */}
 
 
         <header className="header">
@@ -71,6 +83,8 @@ export const Navbar = () => {
             </nav>
         </header>
 
+                
+        <ItemListContainer type={activeType}/>
 
     </>
   )
