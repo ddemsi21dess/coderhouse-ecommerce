@@ -9,9 +9,13 @@ export const Item = ({
   ,minBuyOrder
 }) => {
   
-  // const productImageUrl =`/resources/${ id }.png`;
+
+  const productImageUrl =`/resources/tv-1.png`; // ---> change this line when I have all the images // const productImageUrl =`/resources/${ id }.png`;  
+
+  const onAddProducts = (counter) =>{
+    console.log("Item.jsx --> onAddProducts: ", counter);
+  }
   
-  const productImageUrl =`/resources/tv-1.png`;
   return (
     <>
         <div className='item-container'>
@@ -25,7 +29,7 @@ export const Item = ({
               <img src= {productImageUrl} alt='producto' className='product-image' />   
             </div>
             <div className='item-selectors'>             
-              <ItemCount minBuyOrder={minBuyOrder} stockValue={stock}/>
+              <ItemCount minBuyOrder={minBuyOrder} stockValue={stock} onAddProducts={onAddProducts}/>
             </div>
         </div>
     </>
