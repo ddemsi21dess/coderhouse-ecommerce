@@ -1,7 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 
-export const ItemCount = ({minBuyOrder = 1, stockValue = undefined , onAddProducts }) => {
+export const ItemCount = ({
+  onAddProducts 
+  ,minBuyOrder = 1 
+  ,stockValue = undefined}) => {
 
   const [counter, setCounter] = useState(minBuyOrder);
 
@@ -32,12 +35,10 @@ export const ItemCount = ({minBuyOrder = 1, stockValue = undefined , onAddProduc
   return (
     <>
     <div className='item-count-container'>
-
         <button className='counter-button subtract-button' onClick={onSubtract}>-</button>
         <input className='input-counter' type='text' value={counter} onChange={onChangeProducts}></input>
         <button className='counter-button add-button'  onClick={onAdd}>+</button>
-        <button className='add-product' onClick={onAddProducts(counter)}>Agregar al carrito</button>
-  
+        <button className='add-product' onClick={()=>onAddProducts(counter)}>Agregar al carrito</button>  
     </div>
     </>
   )
