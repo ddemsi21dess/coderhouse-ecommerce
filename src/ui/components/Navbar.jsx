@@ -81,7 +81,6 @@ export const Navbar = () => {
                         <CartWidget products={100}/>
                     </li>
                     <li className="nav-menu-item " key='login'>                        
-                        {/* <a href="#" className="nav-link user-name">Cuenta</a>        */}
                         <img src='/login.png' alt='login' className='login-img' />              
                     </li>
                     

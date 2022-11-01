@@ -147,11 +147,18 @@
     margin-left:0px;
     border:1px solid #034574;
     border-left:1px solid #ccc;
-    border-radius: 2px;
     width: 40px;
     background-color: #034574;
     color:white;
     cursor: pointer;
+  }
+  .add-button{
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+  .subtract-button{
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
   }
   
   .counter-button:hover{
@@ -297,4 +304,5 @@
   .login-img{
     height:55px;
     margin-top:4px;
+    line-height: 65px;
   }
