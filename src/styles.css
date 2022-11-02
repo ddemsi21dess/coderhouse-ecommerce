@@ -306,3 +306,44 @@
     margin-top:4px;
     line-height: 65px;
   }
+
+
+  /*--------------------*/
+  /*--- Item Details ---*/
+  /*-------------------*/
+
+  .item-detail-container{
+    border: 2px solid #719ECE;
+    border-radius: 5px;
+    width:50%;
+    height:80vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .item-detail-title{
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+  }
+  
+  .item-detail-price{
+    width: 100%;
+    height: 20px;
+    text-align: center;
+    line-height: 30px;
+  }
+
+  .item-detail-image{
+    width: 100%;
+    height: 430px;
+    text-align: center;
+    line-height: 100px;
+  }
+
+  .product-detail-image{
+    max-width: 430px;
+    max-height: 430px;
+  }

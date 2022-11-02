@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { ItemListContainer } from '../../components';
+import { ItemListContainer,ItemDetailContainer } from '../../components';
 import { CartWidget } from './CartWidget';
 import { NavbarItem } from './NavbarItem';
 import { Sidebar } from './Sidebar';
@@ -89,8 +89,8 @@ export const Navbar = () => {
         </header>
 
                 
-        <ItemListContainer type={activeType}/>
-
+        {/* <ItemListContainer type={activeType}/> */}
+                <ItemDetailContainer id= 'tv-1'/>
     </>
   )
 }
