@@ -10,6 +10,7 @@ export const ItemList = ({type}) => {
   // const products = useMemo(()=> getProductsByType(type) ,[type]);
 
   const [products, setProducts] = useState(undefined);
+  
   useEffect(() => {
     setProducts(undefined);
     const getAllProducts = new Promise((resolve,reject) =>{

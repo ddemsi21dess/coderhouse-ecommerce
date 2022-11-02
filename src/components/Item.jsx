@@ -13,7 +13,7 @@ export const Item = ({
   const productImageUrl =`/resources/tv-1.png`; // ---> change this line when I have all the images // const productImageUrl =`/resources/${ id }.png`;  
 
   const onAddProducts = (counter) =>{
-    console.log("Item.jsx --> onAddProducts: ", counter);
+    console.log(`Agregar al carrito ${counter} productos`);      
   }
   
   return (
