@@ -7,6 +7,7 @@ export const Item = ({
   ,price
   ,stock
   ,minBuyOrder
+  ,image
 }) => {
   
 
@@ -22,11 +23,11 @@ export const Item = ({
             <div className='item-title'>
               <h3>{title}</h3> 
             </div>
-            <div className='item-price'>
-              <h4>{price}</h4>
+            <div className='item-price'>              
+              <h4>{`$  ${price}`}</h4>
             </div>
             <div className='item-image'>
-              <img src= {productImageUrl} alt='producto' className='product-image' />   
+              <img src= {image} alt='producto' className='product-image' />   
             </div>
             <div className='item-selectors'>             
               <ItemCount minBuyOrder={minBuyOrder} stockValue={stock} onAddProducts={onAddProducts}/>

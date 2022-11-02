@@ -90,7 +90,7 @@ export const Navbar = () => {
 
                 
         {/* <ItemListContainer type={activeType}/> */}
-                <ItemDetailContainer id= 'tv-1'/>
+                <ItemDetailContainer id= '1'/>
     </>
   )
 }

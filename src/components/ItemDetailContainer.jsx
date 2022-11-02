@@ -5,7 +5,9 @@ export const ItemDetailContainer = ({id}) => {
 
  return (
       <>
+        <div className='item-detail-container'>
           <ItemDetail id = {id}/>        
+        </div>
       </>
   )
 }

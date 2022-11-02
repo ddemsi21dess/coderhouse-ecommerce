@@ -312,13 +312,20 @@
   /*--- Item Details ---*/
   /*-------------------*/
 
+
   .item-detail-container{
+    display: flex;
+    justify-content: center;
+  }
+
+  .item-detail{
     border: 2px solid #719ECE;
     border-radius: 5px;
     width:50%;
     height:80vh;
     display: flex;
     flex-direction: column;
+    padding:15px;
   }
 
 
