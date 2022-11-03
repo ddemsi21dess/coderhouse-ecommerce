@@ -2,16 +2,13 @@ import React from 'react'
 import { ItemCount } from './ItemCount'
 
 export const Item = ({
-  id
-  ,title
+  title
   ,price
   ,stock
   ,minBuyOrder
   ,image
 }) => {
   
-
-  const productImageUrl =`/resources/tv-1.png`; // ---> change this line when I have all the images // const productImageUrl =`/resources/${ id }.png`;  
 
   const onAddProducts = (counter) =>{
     console.log(`Agregar al carrito ${counter} productos`);      

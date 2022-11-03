@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useContext }  from 'react';
+import { CategoryContext } from './context/CategoryContext';
+
+import {ItemListContainer , ItemDetailContainer} from './components';
+import { Navbar } from './ui/components';
 
 import './styles.css';
 
-import {ItemListContainer} from './components';
-import { Navbar } from './ui/components';
 
 export const EcommerceApp = () => {
-  return (
+  
+ const {productId} = useContext(CategoryContext);
+ 
+  return (   
     <>
-        <Navbar />  
-        {/* <ItemListContainer/> */}
-  </>
+      <Navbar />  
+      {
+        productId 
+          ? <ItemDetailContainer/> 
+          : <ItemListContainer/>
+      }
+    </>    
   )
 }
 

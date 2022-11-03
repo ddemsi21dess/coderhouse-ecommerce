@@ -1,22 +1,14 @@
 import React from 'react'
+import { useContext } from 'react';
+import { CategoryContext } from '../../context/CategoryContext';
 
-export const NavbarItem = ({name,id,onHandleSelectedItem,activeId}) => {
+export const NavbarItem = ({name , id , isActive}) => {
 
-  const [active, setActive] = React.useState(false);
-
-  const onHandleClick = () =>{
-    onHandleSelectedItem(id);
-  };
-  
-  React.useEffect(() => {
-    if (activeId === id) setActive(true);
-    else setActive(false);    
-  }, [activeId]);
-  
+  const {categoryId, setCategoryId} =  useContext(CategoryContext);
 
   return (
     <>
-      <li className={`nav-menu-item ${active ? 'nav-menu-link_active' : ''}`}  key={id.toString()} onClick={onHandleClick}>
+      <li className={`nav-menu-item ${isActive ? 'nav-menu-link_active' : ''}`}  onClick={()=>setCategoryId(id)}>
         <a href={"#"} className="nav-menu-link nav-link">{name}</a>
       </li>
     </>

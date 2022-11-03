@@ -1,11 +1,11 @@
 import React from 'react'
 import { ItemList } from './ItemList'
 
-export const ItemListContainer = ({type}) => {
+export const ItemListContainer = () => {
+
   return (
     <>
-        <ItemList type={type}/>
-        
+        <ItemList/>        
     </>
   )
 }
