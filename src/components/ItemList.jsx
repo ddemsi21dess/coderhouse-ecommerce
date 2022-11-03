@@ -26,7 +26,10 @@ export const ItemList = () => {
       try {      
         const data = await fetch('https://6361a329af66cc87dc2f8a2e.mockapi.io/initial/products/products');
         const dataProducts = await data.json();
-        setProducts(getProductsByCategoryId(categoryId,dataProducts));
+        if (categoryId === '100')
+          setProducts(dataProducts);
+        else
+          setProducts(getProductsByCategoryId(categoryId,dataProducts));
 
       } catch (error) {
         console.log(error)

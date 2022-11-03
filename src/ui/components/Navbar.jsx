@@ -10,7 +10,7 @@ import { menuItems } from '../../data/menuItems';
 
 
 export const Navbar = () => {
-    const { categoryId } = useContext(CategoryContext);
+    const { categoryId, totalProducts } = useContext(CategoryContext);
 
   return (
     <>            
@@ -52,7 +52,7 @@ export const Navbar = () => {
                         <button className='search-button'>Ir</button>
                     </li>
                     <li className="nav-menu-item ">
-                        <CartWidget products={100}/>
+                        <CartWidget products={totalProducts}/>
                     </li>
                     <li className="nav-menu-item " key='login'>                        
                         <img src='/login.png' alt='login' className='login-img' />              

@@ -12,10 +12,11 @@ export const Item = ({
   ,image
 }) => {
   
-  const {setProductId, setCategoryId} =  useContext(CategoryContext);
+  const {setProductId, setCategoryId ,setTotalProducts } =  useContext(CategoryContext);
   
   const onAddProducts = (counter) =>{
-    console.log(`Agregar al carrito ${counter} productos`);      
+    console.log(`Agregar al carrito ${counter} productos`);     
+    setTotalProducts(previousValue => previousValue + counter); 
   }
   const onHandleSeeDetails = () =>{
     setProductId(id);

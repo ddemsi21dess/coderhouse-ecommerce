@@ -6,9 +6,10 @@ export const CategoryProvider = ({ children }) => {
 
   const [categoryId, setCategoryId] = useState(undefined);
   const [productId, setProductId] = useState(undefined);
+  const [totalProducts, setTotalProducts] = useState(0);
 
   return (
-    <CategoryContext.Provider value ={{categoryId, setCategoryId, productId,setProductId}}>
+    <CategoryContext.Provider value ={{categoryId, setCategoryId, productId,setProductId,totalProducts, setTotalProducts}}>
         {children}
     </CategoryContext.Provider>
   )

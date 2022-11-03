@@ -1,14 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { useContext } from 'react';
 import { CategoryContext } from '../context/CategoryContext';
+import { ItemCount } from './ItemCount';
 
 
 
 export const ItemDetail = () => {
 
-    const { productId }  =  useContext(CategoryContext);
+    const { productId,setTotalProducts }  =  useContext(CategoryContext);
 
     const [product, setProduct] = useState({});
+
+    const onAddProducts = (counter) =>{
+      console.log(`Agregar al carrito ${counter} productos`);     
+      setTotalProducts(previousValue => previousValue + counter); 
+    }
   
     useEffect(() => {
       const getProduct = async ()=>{
@@ -47,6 +53,9 @@ export const ItemDetail = () => {
             </div>
             <div className='item-detail-description'>
                 {product.description ? product.description : ''}
+            </div>
+            <div className='item-selectors'>             
+              <ItemCount minBuyOrder={product.minBuyOrder} stockValue={product.stock} onAddProducts={onAddProducts}/>
             </div>
         </div>
      
