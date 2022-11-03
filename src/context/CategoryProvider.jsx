@@ -4,7 +4,7 @@ import { CategoryContext } from './CategoryContext'
 
 export const CategoryProvider = ({ children }) => {
 
-  const [categoryId, setCategoryId] = useState(undefined);
+  const [categoryId, setCategoryId] = useState('100');
   const [productId, setProductId] = useState(undefined);
   const [totalProducts, setTotalProducts] = useState(0);
 
