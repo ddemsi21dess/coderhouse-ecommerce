@@ -19,7 +19,9 @@ export const ItemList = () => {
   
  //ASYNC - AWAIT
   useEffect(() => {
+    
     setProducts(undefined);
+
     const getProducts = async ()=>{
       try {      
         const data = await fetch('https://6361a329af66cc87dc2f8a2e.mockapi.io/initial/products/products');

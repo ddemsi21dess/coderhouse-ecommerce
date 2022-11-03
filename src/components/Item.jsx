@@ -1,19 +1,26 @@
 import React from 'react'
+import { useContext } from 'react'
+import { CategoryContext } from '../context/CategoryContext'
 import { ItemCount } from './ItemCount'
 
 export const Item = ({
-  title
+  id
+  ,title
   ,price
   ,stock
   ,minBuyOrder
   ,image
 }) => {
   
-
+  const {setProductId, setCategoryId} =  useContext(CategoryContext);
+  
   const onAddProducts = (counter) =>{
     console.log(`Agregar al carrito ${counter} productos`);      
   }
-  
+  const onHandleSeeDetails = () =>{
+    setProductId(id);
+    setCategoryId(undefined);
+  };
   return (
     <>
         <div className='item-container'>
@@ -28,6 +35,9 @@ export const Item = ({
             </div>
             <div className='item-selectors'>             
               <ItemCount minBuyOrder={minBuyOrder} stockValue={stock} onAddProducts={onAddProducts}/>
+            </div>
+            <div className='item-title'>
+              <button className='details-btn' onClick={onHandleSeeDetails}>Ver detalles</button>
             </div>
         </div>
     </>
