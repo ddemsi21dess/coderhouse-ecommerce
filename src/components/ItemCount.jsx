@@ -24,19 +24,20 @@ export const ItemCount = ({
     
   }
 
-  const onChangeProducts = (e) => {     
-    const re = /^[0-9\b]+$/;
-    if (e.target.value === '' || re.test(e.target.value)) {        
-        setCounter(e.target.value);
-    }
-  }
+  // const onChangeProducts = (e) => {     
+  //   const re = /^[0-9\b]+$/;
+  //   if (e.target.value === '' || re.test(e.target.value) ) {      
+  //     if (e.target.value <= stockValue)
+  //       setCounter(e.target.value);
+  //   }
+  // }
 
   
   return (
     <>
     <div className='item-count-container'>
         <button className='counter-button subtract-button' onClick={onSubtract}>-</button>
-        <input className='input-counter' type='text' value={counter} onChange={onChangeProducts}></input>
+        <input className='input-counter' type='text' value={counter}></input>
         <button className='counter-button add-button'  onClick={onAdd}>+</button>
         <button className='add-product' onClick={()=>onAddProducts(counter)}>Agregar al carrito</button>  
     </div>

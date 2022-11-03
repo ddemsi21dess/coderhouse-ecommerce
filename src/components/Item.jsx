@@ -15,7 +15,8 @@ export const Item = ({
   const {setProductId, setCategoryId ,setTotalProducts } =  useContext(CategoryContext);
   
   const onAddProducts = (counter) =>{
-    console.log(`Agregar al carrito ${counter} productos`);     
+    console.log(`Agregar al carrito ${counter} productos`);
+    console.log(`ProductId: ${id}  / Title: ${title} / Price: ${price}`);     
     setTotalProducts(previousValue => previousValue + counter); 
   }
   const onHandleSeeDetails = () =>{

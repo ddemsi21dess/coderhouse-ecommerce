@@ -12,14 +12,15 @@ export const ItemDetail = () => {
     const [product, setProduct] = useState({});
 
     const onAddProducts = (counter) =>{
-      console.log(`Agregar al carrito ${counter} productos`);     
+      console.log(`Agregar al carrito ${counter} productos`);           
+      console.log(`ProductId: ${product.id}  / Title: ${product.title} / Price: ${product.price}`);   
       setTotalProducts(previousValue => previousValue + counter); 
     }
   
     useEffect(() => {
       const getProduct = async ()=>{
         try {      
-          if (productId != undefined){
+          if (productId !== undefined){
             const data = await fetch(`https://6361a329af66cc87dc2f8a2e.mockapi.io/initial/products/products/${productId}`);   
 
            const dataProduct = await data.json();  
