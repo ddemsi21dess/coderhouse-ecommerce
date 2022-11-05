@@ -1,11 +1,11 @@
 import React from 'react'
 import { ItemList } from './ItemList'
 
-export const ItemListContainer = () => {
+export const ItemListContainer = ({ categoryId }) => {
 
   return (
     <>
-        <ItemList/>        
+        <ItemList categoryId = { categoryId }/>        
     </>
   )
 }

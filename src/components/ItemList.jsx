@@ -8,18 +8,13 @@ import { getProductsByCategoryId } from '../helpers';
 import { Loading } from '../ui/components/main';
 import { Item } from './Item'
 
-export const ItemList = () => {
-
-
-  const { categoryId }  = useContext(CategoryContext);
-
-  // const products = useMemo(()=> getProductsByType(type) ,[type]);
-
+export const ItemList = ({ categoryId }) => {
   const [products, setProducts] = useState(undefined);
   
  //ASYNC - AWAIT
   useEffect(() => {
-    
+    console.log("item category",categoryId);
+    if (categoryId > 5 && categoryId != 100) return;
     setProducts(undefined);
 
     const getProducts = async ()=>{
