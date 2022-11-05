@@ -1,46 +1,47 @@
-import React, { useEffect, useState } from 'react'
-import { useContext } from 'react';
+import React, { useEffect, useState,useContext } from 'react'
+
 import { CategoryContext } from '../context/CategoryContext';
+
 import { ItemCount } from './ItemCount';
 
 
 
-export const ItemDetail = () => {
 
-    const { productId,setTotalProducts }  =  useContext(CategoryContext);
+export const ItemDetail = ({ productId }) => {
+
+    const { setTotalProducts }  =  useContext(CategoryContext);
 
     const [product, setProduct] = useState({});
+    const [showDetails, setShowDetails] = useState(false);
 
     const onAddProducts = (counter) =>{
       console.log(`Agregar al carrito ${counter} productos`);           
       console.log(`ProductId: ${product.id}  / Title: ${product.title} / Price: ${product.price}`);   
       setTotalProducts(previousValue => previousValue + counter); 
     }
-  
     useEffect(() => {
+
+      if (productId > 5 || !productId) return;
+      setShowDetails(true);
+      
       const getProduct = async ()=>{
-        try {      
-          if (productId !== undefined){
-            const data = await fetch(`https://6361a329af66cc87dc2f8a2e.mockapi.io/initial/products/products/${productId}`);   
-
+        try {                      
+           const data = await fetch(`https://6361a329af66cc87dc2f8a2e.mockapi.io/initial/products/products/${productId}`);   
            const dataProduct = await data.json();  
-           setProduct(dataProduct);
-          }
-
-         
+           setProduct(dataProduct);      
         } catch (error) {
           console.log(error)
         }
       };;
   
       getProduct();
+
     }, [productId]);
-  
 
   return (
     <>
     {
-      productId ?
+      showDetails ?
 
         <div className='item-detail'>
             <div className='item-detail-title'>

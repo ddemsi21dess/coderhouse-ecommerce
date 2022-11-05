@@ -5,7 +5,7 @@ import { CategoryContext } from '../context/CategoryContext';
 
 import { getProductsByCategoryId } from '../helpers';
 
-import { Loading } from '../ui/components';
+import { Loading } from '../ui/components/main';
 import { Item } from './Item'
 
 export const ItemList = () => {

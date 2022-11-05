@@ -31,13 +31,15 @@ export const ItemCount = ({
   //       setCounter(e.target.value);
   //   }
   // }
+  const onInputChange = () =>{
 
+  };
   
   return (
     <>
     <div className='item-count-container'>
         <button className='counter-button subtract-button' onClick={onSubtract}>-</button>
-        <input className='input-counter' type='text' value={counter}></input>
+        <input className='input-counter' type='text' value={counter} onChange={onInputChange}></input>
         <button className='counter-button add-button'  onClick={onAdd}>+</button>
         <button className='add-product' onClick={()=>onAddProducts(counter)}>Agregar al carrito</button>  
     </div>

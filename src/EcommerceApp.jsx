@@ -2,9 +2,10 @@ import React, { useContext }  from 'react';
 import { CategoryContext } from './context/CategoryContext';
 
 import {ItemListContainer , ItemDetailContainer} from './components';
-import { Navbar } from './ui/components';
+import { Navbar } from './ui/components/main';
 
 import './styles.css';
+import { AppRouter } from './router/AppRouter';
 
 
 export const EcommerceApp = () => {
@@ -13,12 +14,14 @@ export const EcommerceApp = () => {
  
   return (   
     <>
-      <Navbar />  
+      {/* <Navbar />  
       {
         productId 
           ? <ItemDetailContainer/> 
           : <ItemListContainer/>
-      }
+      } */}
+
+      <AppRouter />
     </>    
   )
 }

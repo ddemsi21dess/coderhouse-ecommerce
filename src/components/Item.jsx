@@ -1,5 +1,5 @@
-import React from 'react'
-import { useContext } from 'react'
+import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { CategoryContext } from '../context/CategoryContext'
 import { ItemCount } from './ItemCount'
 
@@ -12,16 +12,16 @@ export const Item = ({
   ,image
 }) => {
   
-  const {setProductId, setCategoryId ,setTotalProducts } =  useContext(CategoryContext);
+  const { setTotalProducts } =  useContext(CategoryContext);
   
+  const navigate = useNavigate();
   const onAddProducts = (counter) =>{
     console.log(`Agregar al carrito ${counter} productos`);
     console.log(`ProductId: ${id}  / Title: ${title} / Price: ${price}`);     
     setTotalProducts(previousValue => previousValue + counter); 
   }
   const onHandleSeeDetails = () =>{
-    setProductId(id);
-    setCategoryId(undefined);
+    navigate(`/detail/${id}`);
   };
   return (
     <>
