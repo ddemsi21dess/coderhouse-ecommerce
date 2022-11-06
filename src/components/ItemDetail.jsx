@@ -4,9 +4,6 @@ import { CategoryContext } from '../context/CategoryContext';
 
 import { ItemCount } from './ItemCount';
 
-
-
-
 export const ItemDetail = ({ productId }) => {
 
     const { setTotalProducts }  =  useContext(CategoryContext);
@@ -27,8 +24,8 @@ export const ItemDetail = ({ productId }) => {
       const getProduct = async ()=>{
         try {                      
            const data = await fetch(`https://6361a329af66cc87dc2f8a2e.mockapi.io/initial/products/products/${productId}`);   
-           const dataProduct = await data.json();  
-           setProduct(dataProduct);      
+           const dataProduct = await data.json(); 
+           setProduct(dataProduct); 
         } catch (error) {
           console.log(error)
         }

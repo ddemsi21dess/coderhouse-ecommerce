@@ -1,4 +1,4 @@
-export const products = 
+export const localProducts = 
 [
   {
    "categoryName": "tv",

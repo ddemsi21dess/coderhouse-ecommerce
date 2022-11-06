@@ -22,7 +22,7 @@ export const Item = ({
   }
   const onHandleSeeDetails = () =>{
     setCategoryId(undefined);
-    navigate(`/detail/${id}`);
+    navigate(`/item/${id}`);
   };
   return (
     <>
