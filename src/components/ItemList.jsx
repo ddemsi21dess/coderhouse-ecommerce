@@ -7,24 +7,29 @@ import { Loading } from '../ui/components';
 import { Item } from './Item'
 
 export const ItemList = ({ categoryId }) => {
-  const [products, setProducts] = useState(undefined);
-  
- //ASYNC - AWAIT
+  const [products, setProducts] = useState(undefined);  
+ 
+
+  const getItems = async (categoryId) => {
+    try {
+        const promises = [];
+        promises.push(fetch('https://6361a329af66cc87dc2f8a2e.mockapi.io/initial/products/products').then(res => res.json()));
+
+        const results = await Promise.all(promises);
+        
+        setProducts(getProductsByCategoryId(categoryId,results[0]));
+       
+    } catch (error) {
+        console.log(error);
+    } 
+  }
+
+
+
+
   useEffect(() => {    
     setProducts(undefined);
-
-    const getProducts = async ()=>{
-      try {      
-        const data = await fetch('https://6361a329af66cc87dc2f8a2e.mockapi.io/initial/products/products');
-        const dataProducts = await data.json();        
-        setProducts(getProductsByCategoryId(categoryId,dataProducts));
-
-      } catch (error) {
-        console.log(error)
-      }
-    };;
-
-    getProducts();
+    getItems(categoryId);
   }, [categoryId]);
 
 

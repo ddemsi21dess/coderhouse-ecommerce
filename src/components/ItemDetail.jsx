@@ -6,30 +6,37 @@ export const ItemDetail = ({ productId }) => {
 
 
     const [product, setProduct] = useState({});
-    const [showDetails, setShowDetails] = useState(false);
+    const [showDetails, setShowDetails] = useState(true);
 
     const onAddProducts = (counter) =>{
       console.log(`Agregar al carrito ${counter} productos`);           
       console.log(`ProductId: ${product.id}  / Title: ${product.title} / Price: ${product.price}`);   
     }
-    useEffect(() => {
 
-      if (productId > 7|| !productId) return;
-      setShowDetails(true);
-      
-      const getProduct = async ()=>{
-        try {                      
-           const data = await fetch(`https://6361a329af66cc87dc2f8a2e.mockapi.io/initial/products/products/${productId}`);   
-           const dataProduct = await data.json(); 
-           setProduct(dataProduct); 
-        } catch (error) {
-          console.log(error)
-        }
-      };;
-  
-      getProduct();
+    const getItem = async () => {
+      try {
+          const promises = [];
+          promises.push(fetch(`https://6361a329af66cc87dc2f8a2e.mockapi.io/initial/products/products/${productId}`).then(res => res.json()));
 
-    }, [productId]);
+          const result = await Promise.all(promises);
+
+          if (result && result[0] && result[0].categoryId){  
+            setProduct(result[0]);         
+            setShowDetails(true);    
+          } else {
+            setShowDetails(false);
+            setProduct({});
+          }
+      } catch (error) {
+          console.log(error);
+    } 
+  }
+
+  useEffect(() => { 
+    getItem();
+
+  }, [productId]);
+
 
   return (
     <>
