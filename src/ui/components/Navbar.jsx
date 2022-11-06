@@ -1,6 +1,5 @@
-import React, { useContext, useEffect,useState } from 'react'
+import React, { useEffect , useState } from 'react'
 
-import { CategoryContext } from '../../context/CategoryContext';
 
 import { CartWidget } from './CartWidget';
 import { NavbarItem } from './NavbarItem';
@@ -15,12 +14,13 @@ import LoginImage from './../resources/login.png';
 export const Navbar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const { totalProducts } = useContext(CategoryContext);
   
   const [activeHome, setActiveHome] = useState(false);
   const [categoryName, setCategoryName] = useState(undefined);
+  const [totalProducts, setTotalProducts] = useState(0);
 
-  const showHomePage = () => navigate(`/`);
+  const showHomePage = () => navigate('/');
+  const showCartPage = () => navigate('/cart');
 
   const getActiveCategory = () =>{
     const splitPathName = pathname.split("/");
@@ -82,7 +82,10 @@ export const Navbar = () => {
                         <button className='search-button'>Ir</button>
                     </li>
                     <li className="nav-menu-item ">
-                        <CartWidget products={totalProducts}/>
+                        <a className="logo nav-link" onClick={showCartPage}>
+                           
+                            <CartWidget products={totalProducts}/>
+                        </a>
                     </li>
                     <li className="nav-menu-item " key='login'>                        
                         <img src= {LoginImage} alt='login' className='login-img' />              

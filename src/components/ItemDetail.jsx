@@ -1,12 +1,9 @@
-import React, { useEffect, useState,useContext } from 'react'
-
-import { CategoryContext } from '../context/CategoryContext';
+import React, { useEffect, useState } from 'react'
 
 import { ItemCount } from './ItemCount';
 
 export const ItemDetail = ({ productId }) => {
 
-    const { setTotalProducts }  =  useContext(CategoryContext);
 
     const [product, setProduct] = useState({});
     const [showDetails, setShowDetails] = useState(false);
@@ -14,7 +11,6 @@ export const ItemDetail = ({ productId }) => {
     const onAddProducts = (counter) =>{
       console.log(`Agregar al carrito ${counter} productos`);           
       console.log(`ProductId: ${product.id}  / Title: ${product.title} / Price: ${product.price}`);   
-      setTotalProducts(previousValue => previousValue + counter); 
     }
     useEffect(() => {
 
