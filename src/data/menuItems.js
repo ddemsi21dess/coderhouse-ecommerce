@@ -1,8 +1,8 @@
 export const menuItems = [    
-    {id:'1'       ,name:'Televisores'  },
-    {id:'2'       ,name:'Celulares'    },
-    {id:'3'       ,name:'Climatización'},
-    {id:'4'       ,name:'Heladeras'    },
-    {id:'5'       ,name:'Herramientas' },
+    {id:'televisores'         ,name:'Televisores'  },
+    {id:'celulares'           ,name:'Celulares'    },
+    {id:'climatizacion'       ,name:'Climatización'},
+    {id:'heladeras'           ,name:'Heladeras'    },
+    {id:'herramientas'        ,name:'Herramientas' },
   ];
   

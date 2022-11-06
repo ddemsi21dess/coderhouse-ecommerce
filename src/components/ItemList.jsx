@@ -10,8 +10,7 @@ export const ItemList = ({ categoryId }) => {
   const [products, setProducts] = useState(undefined);
   
  //ASYNC - AWAIT
-  useEffect(() => {
-    if (categoryId > 5) return;
+  useEffect(() => {    
     setProducts(undefined);
 
     const getProducts = async ()=>{

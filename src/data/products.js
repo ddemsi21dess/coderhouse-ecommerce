@@ -8,7 +8,7 @@ export const products =
    "stock": 5,
    "image": "http://loremflickr.com/640/480/nature",
    "id": "1",
-   "categoryId": "1"
+   "categoryId": "televisores"
   },
   {
    "categoryName": "tv",
@@ -18,7 +18,7 @@ export const products =
    "stock": 5,
    "image": "http://loremflickr.com/640/485/nature",
    "id": "6",
-   "categoryId": "1"
+   "categoryId": "televisores"
   },
   {
    "categoryName": "phone",
@@ -28,7 +28,7 @@ export const products =
    "stock": 3,
    "image": "http://loremflickr.com/640/470/nature",
    "id": "2",
-   "categoryId": "2"
+   "categoryId": "celulares"
   },
   {
    "categoryName": "phone",
@@ -38,7 +38,7 @@ export const products =
    "stock": 7,
    "image": "http://loremflickr.com/640/475/nature",
    "id": "7",
-   "categoryId": "2"
+   "categoryId": "celulares"
   },
   {
    "categoryName": "air",
@@ -48,7 +48,7 @@ export const products =
    "stock": 10,
    "image": "http://loremflickr.com/640/460/nature",
    "id": "3",
-   "categoryId": "3"
+   "categoryId": "climatizacion"
   },
   {
    "categoryName": "refrigerator",
@@ -58,7 +58,7 @@ export const products =
    "stock": 3,
    "image": "http://loremflickr.com/640/450/nature",
    "id": "4",
-   "categoryId": "4"
+   "categoryId": "heladeras"
   },
   {
    "categoryName": "tool",
@@ -68,6 +68,6 @@ export const products =
    "stock": 15,
    "image": "http://loremflickr.com/640/440/nature",
    "id": "5",
-   "categoryId": "5"
+   "categoryId": "herramientas"
   }
  ]
