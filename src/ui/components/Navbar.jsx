@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect,useState } from 'react'
 
 import { CategoryContext } from '../../context/CategoryContext';
 
@@ -6,12 +6,31 @@ import { CartWidget } from './CartWidget';
 import { NavbarItem } from './NavbarItem';
 
 import { menuItems } from '../../data/menuItems';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
+import Logo from './../resources/logo.png';
+import LoginImage from './../resources/login.png';
 
 export const Navbar = () => {
-    const { categoryId, totalProducts } = useContext(CategoryContext);
+  const navigate = useNavigate();
+  const { pathname } = useLocation();
+  const { totalProducts, categoryId, setCategoryId } = useContext(CategoryContext);
+  
+  const [activeHome, setActiveHome] = useState(false);
 
+  const showHomePage = () => {
+    setCategoryId(undefined);
+    navigate(`/`);
+  }
+
+  useEffect(() => {
+    setActiveHome(false);
+    if (pathname === '/') setActiveHome(true);  
+  
+  }, [pathname])
+  
+  
   return (
     <>            
         <header className="header">
@@ -19,29 +38,35 @@ export const Navbar = () => {
             
                 <ul className="nav-menu">
                     <li className="nav-menu-item" key='logo'>
-                        <a href="#" className="logo nav-link">
-                            <img src= './logo.png' alt='logo' className='logo' />    
+                        <a className="logo nav-link" onClick={showHomePage}>
+                            <img src={Logo} alt='logo' className='logo' />
                         </a>
                     </li>
                 
                     <li className="nav-menu-item company-name" key='company-name'>
-                        <a href="#" className="nav-link ">QB Store</a>
+                        <a className="nav-link "  onClick={showHomePage}>QB Store</a>
                     </li>
                 </ul>
 
             
                 <ul className="nav-menu">
-                {
-                    menuItems.map(item =>(                
-                        <NavbarItem 
-                            name={item.name} 
-                            id={item.id} 
-                            key={item.id ? item.id : 'all'}
-                            activeId={categoryId}
-                            isActive={categoryId === item.id && categoryId}
-                            />
-                    ))
-                }              
+
+                    <li className={`nav-menu-item ${ activeHome ? 'nav-menu-link_active' : ''}`}  onClick={showHomePage}>
+                        <a className="nav-menu-link nav-link">Home</a>
+                    </li>
+
+                    {
+                    
+                        menuItems.map(item =>(                
+                            <NavbarItem 
+                                name={item.name} 
+                                id={item.id} 
+                                key={item.id}
+                                activeId={categoryId}
+                                isActive={categoryId === item.id && categoryId}                   
+                                />
+                        ))
+                    }              
                 </ul>
 
 
@@ -55,7 +80,7 @@ export const Navbar = () => {
                         <CartWidget products={totalProducts}/>
                     </li>
                     <li className="nav-menu-item " key='login'>                        
-                        <img src='/login.png' alt='login' className='login-img' />              
+                        <img src= {LoginImage} alt='login' className='login-img' />              
                     </li>
                     
                 </ul>

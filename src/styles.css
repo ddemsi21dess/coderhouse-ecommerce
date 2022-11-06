@@ -53,6 +53,9 @@
     background-color: #034574;
     transition: 0.2s;
   }
+  .nav-link{
+    cursor: pointer;
+  }
 
   /*---------------------*/
   /*Navbar content items*/
@@ -223,7 +226,7 @@
   .item-container {
     min-width: 350px;
     width: 350px;
-    height: 360px;
+    height: 380px;
     margin:15px;
     border: 1px solid #c3c3c3;
     display: flex;
@@ -254,6 +257,7 @@
   }
 
   .item-selectors{
+    margin-top:15px;
     text-align: center;
     width:100%;
   }

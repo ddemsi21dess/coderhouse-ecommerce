@@ -12,7 +12,7 @@ export const Item = ({
   ,image
 }) => {
   
-  const { setTotalProducts } =  useContext(CategoryContext);
+  const { setTotalProducts, setCategoryId } =  useContext(CategoryContext);
   
   const navigate = useNavigate();
   const onAddProducts = (counter) =>{
@@ -21,6 +21,7 @@ export const Item = ({
     setTotalProducts(previousValue => previousValue + counter); 
   }
   const onHandleSeeDetails = () =>{
+    setCategoryId(undefined);
     navigate(`/detail/${id}`);
   };
   return (

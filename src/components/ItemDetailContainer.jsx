@@ -2,7 +2,6 @@ import React from 'react'
 import { ItemDetail } from './ItemDetail'
 
 export const ItemDetailContainer = ({ productId }) => {
-
  return (
       <>
         <div className='item-detail-container'>

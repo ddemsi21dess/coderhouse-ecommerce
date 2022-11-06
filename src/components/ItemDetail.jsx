@@ -21,7 +21,7 @@ export const ItemDetail = ({ productId }) => {
     }
     useEffect(() => {
 
-      if (productId > 5 || !productId) return;
+      if (productId > 7|| !productId) return;
       setShowDetails(true);
       
       const getProduct = async ()=>{

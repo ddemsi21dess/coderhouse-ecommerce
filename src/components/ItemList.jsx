@@ -1,11 +1,9 @@
-import React, { useContext, useMemo } from 'react'
+import React from 'react'
 import { useState } from 'react';
 import { useEffect } from 'react';
-import { CategoryContext } from '../context/CategoryContext';
-
 import { getProductsByCategoryId } from '../helpers';
 
-import { Loading } from '../ui/components/main';
+import { Loading } from '../ui/components';
 import { Item } from './Item'
 
 export const ItemList = ({ categoryId }) => {
@@ -13,8 +11,7 @@ export const ItemList = ({ categoryId }) => {
   
  //ASYNC - AWAIT
   useEffect(() => {
-    console.log("item category",categoryId);
-    if (categoryId > 5 && categoryId != 100) return;
+    if (categoryId > 5) return;
     setProducts(undefined);
 
     const getProducts = async ()=>{
