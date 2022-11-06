@@ -15,17 +15,22 @@ import LoginImage from './../resources/login.png';
 export const Navbar = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const { totalProducts, categoryId, setCategoryId } = useContext(CategoryContext);
+  const { totalProducts } = useContext(CategoryContext);
   
   const [activeHome, setActiveHome] = useState(false);
+  const [categoryName, setCategoryName] = useState(undefined);
 
-  const showHomePage = () => {
-    setCategoryId(undefined);
-    navigate(`/`);
-  }
+  const showHomePage = () => navigate(`/`);
+
+  const getActiveCategory = () =>{
+    const splitPathName = pathname.split("/");
+    return splitPathName && splitPathName[2] ? splitPathName[2] : undefined;
+  };
+
 
   useEffect(() => {
     setActiveHome(false);
+    setCategoryName(getActiveCategory());
     if (pathname === '/') setActiveHome(true);  
   
   }, [pathname])
@@ -62,8 +67,8 @@ export const Navbar = () => {
                                 name={item.name} 
                                 id={item.id} 
                                 key={item.id}
-                                activeId={categoryId}
-                                isActive={categoryId === item.id && categoryId}                   
+                                isActive={categoryName === item.id && categoryName}   
+                                
                                 />
                         ))
                     }              

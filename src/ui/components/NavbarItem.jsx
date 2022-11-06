@@ -1,16 +1,10 @@
 import React from 'react'
-import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CategoryContext } from '../../context/CategoryContext';
 
 export const NavbarItem = ({name , id , isActive}) => {
-
   const navigate = useNavigate();
   
-  const { setCategoryId } =  useContext(CategoryContext);
-
   const onHandleClick = () =>{
-    setCategoryId(id);
     navigate(`/category/${id}`);
   }
 

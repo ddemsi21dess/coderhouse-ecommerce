@@ -34,7 +34,7 @@ export const ItemList = ({ categoryId }) => {
         { products ? 
           products.map(product=>(
             <Item 
-                key={product.categoryId}  
+                key={product.id}  
                 {...product}
             />
           ))
