@@ -56,6 +56,9 @@ export const ItemDetail = ({ productId }) => {
             <div className='item-selectors'>             
               <ItemCount minBuyOrder={product.minBuyOrder} stockValue={product.stock} onAddProducts={onAddProducts}/>
             </div>
+            <div>
+              
+            </div>
         </div>
      
       : <div>No se encontró el producto </div>
