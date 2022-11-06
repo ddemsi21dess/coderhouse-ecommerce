@@ -52,7 +52,7 @@ export const Navbar = () => {
                 <ul className="nav-menu">
 
                     <li className={`nav-menu-item ${ activeHome ? 'nav-menu-link_active' : ''}`}  onClick={showHomePage}>
-                        <a className="nav-menu-link nav-link">Home</a>
+                        <a className="nav-menu-link nav-link">Inicio</a>
                     </li>
 
                     {
