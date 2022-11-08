@@ -28,7 +28,9 @@ export const ItemDetail = ({ productId }) => {
             setProduct({});
           }
       } catch (error) {
-          console.log(error);
+          console.log(error); 
+          setShowDetails(false);
+          setProduct({});
     } 
   }
 

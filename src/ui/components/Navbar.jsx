@@ -39,7 +39,7 @@ export const Navbar = () => {
   return (
     <>            
         <header className="header">
-            <nav className="nav">
+            <div className="nav">
             
                 <ul className="nav-menu">
                     <li className="nav-menu-item" key='logo'>
@@ -92,7 +92,7 @@ export const Navbar = () => {
                     </li>
                     
                 </ul>
-            </nav>
+            </div>
         </header>
     </>
   )
