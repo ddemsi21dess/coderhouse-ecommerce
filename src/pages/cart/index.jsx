@@ -1,14 +1,10 @@
 import React, { useState, useEffect }  from 'react'
 import { ItemCountCart } from '../../components';
 
-export const Cart = ({cartProductsList, onUpdateCartProducts}) => {
+export const Cart = ({cartProductsList, onRemoveProducts}) => {
 
   const [productIdsList, setProductIdsList] = useState([]);
-
-  const onHandleChangeAmountProducts = (product, newAmount) =>{
-    onUpdateCartProducts(product, newAmount);
-  };
-
+  
   useEffect(() => {
     setProductIdsList([]);
     setProductIdsList(Object.keys(cartProductsList));    
@@ -22,7 +18,7 @@ export const Cart = ({cartProductsList, onUpdateCartProducts}) => {
           <div>
             <ItemCountCart             
               productInfo = {cartProductsList[index] ? cartProductsList[index][0] : {} }
-              onHandleChangeAmountProducts = {onHandleChangeAmountProducts}
+              onRemoveProducts = {onRemoveProducts}
               />
           </div>
         ))

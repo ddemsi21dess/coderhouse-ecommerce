@@ -377,7 +377,9 @@
 /*---------------------------------*/
   /*------Cart Counter--------*/
   /*---------------------------------*/
-
+  .list-item-cart{
+    list-style: none;
+  }
 
   .waring-button-max-limit-reached{
     height: 35px;
