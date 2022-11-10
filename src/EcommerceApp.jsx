@@ -14,14 +14,10 @@ export const EcommerceApp = () => {
   
   const onHandleAddCartProduct  = (newProduct) => setCartProducts(current => [ ...current, ...newProduct ]);
  
-  const onHandleReduceCartProducts = (items) =>{
-    console.log("items",items);
-
-    const result = items.reduce((reducedItems, { id, title, price, amount }) => {
-
+  const onHandleReduceCartProducts = () =>{
+    const result = cartProducts.reduce((reducedItems, { id, title, price, amount }) => {
       if (!reducedItems[id]) reducedItems[id] = [];
-      if (reducedItems[id].length === 0){
-       
+      if (reducedItems[id].length === 0){       
         reducedItems[id].push({id,title,price, amount});
       } 
       else{
@@ -30,17 +26,17 @@ export const EcommerceApp = () => {
       }
       return reducedItems;
     }, {});
+
     console.log("result",result);
-
-
     return result;
   }
 
   useEffect(() => {
-    if (cartProducts.length > 0){
-      
-      // setCartProductsList(onHandleReduceCartProducts(cartProducts));
-      onHandleReduceCartProducts(cartProducts);
+    if (cartProducts.length > 0){      
+      // onHandleReduceCartProducts(cartProducts);
+      let reducedList = onHandleReduceCartProducts();
+      setCartProductsList(reducedList);
+   
     }
   }, [cartProducts])
   
