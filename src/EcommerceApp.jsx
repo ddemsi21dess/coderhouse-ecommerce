@@ -33,11 +33,7 @@ export const EcommerceApp = () => {
   }
 
   const onRemoveProducts = (productId) =>{
-      console.log("cartProducts",cartProducts);
-      console.log("productId",productId);
-      let index  = cartProducts.findIndex(item=> item.id == productId);
-      const newArray = cartProducts.filter((item,i) => i != index);
-      setCartProducts(newArray);            
+      setCartProducts(current => current.filter((item)=> item.id !== productId));           
   };
  
   useEffect(() => {
