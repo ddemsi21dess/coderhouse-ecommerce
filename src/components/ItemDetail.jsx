@@ -9,8 +9,6 @@ export const ItemDetail = ({ productId,onHandleAddCartProduct }) => {
     const [showDetails, setShowDetails] = useState(true);
 
     const onAddProducts = (counter) =>{
-      console.log(`Agregar al carrito ${counter} productos`);           
-      console.log(`ProductId: ${product.id}  / Title: ${product.title} / Price: ${product.price}`);  
       const newProduct = [{...product, amount: counter}];
       onHandleAddCartProduct(newProduct);  
     }

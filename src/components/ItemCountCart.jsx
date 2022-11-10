@@ -1,7 +1,6 @@
 import React , { useEffect, useState } from 'react'
 
 export const ItemCountCart = ({ onHandleChangeAmountProducts, productInfo }) => {
-
   const [counter, setCounter] = useState(1);
   const [maxReached, setMaxReached] = useState(false);
   const [minReached, setMinReached] = useState(false);

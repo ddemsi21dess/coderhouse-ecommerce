@@ -16,9 +16,6 @@ export const Item = ({
   const navigate = useNavigate();
   
   const onAddProducts = (counter) =>{
-    console.log(`Agregar al carrito ${counter} productos`);
-    console.log(`ProductId: ${id}  / Title: ${title} / Price: ${price}`);  
-
     const newProduct = [{...product, amount: counter}];
     onHandleAddCartProduct(newProduct);  
   }

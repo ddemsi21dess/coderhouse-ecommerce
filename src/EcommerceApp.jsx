@@ -1,16 +1,17 @@
-import React, { useState }  from 'react';
-import { useEffect } from 'react';
+import React, { useState , useEffect }  from 'react';
 
 import { AppRouter } from './router/AppRouter';
-
-import './styles.css';
 import { Navbar } from './ui/components';
+import './styles.css';
 
 
 export const EcommerceApp = () => {
 
+  
+  // all products 
   const [cartProducts, setCartProducts] = useState([]);         
 
+  // summary list grouped by type of product
   const [cartProductsList, setCartProductsList] = useState([]);
   
   const onHandleAddCartProduct  = (newProduct) => setCartProducts(current => [ ...current, ...newProduct ]);
@@ -32,14 +33,33 @@ export const EcommerceApp = () => {
   }
 
   const onUpdateCartProducts = (product, newAmount) =>{
+    
+    if (newAmount === 0){
+      let index  = cartProducts.findIndex(item=> item.id == product.id);
+      const newArray = cartProducts.filter((item,i) => i != index);
+      setCartProducts(newArray);     
 
+      return;
+    }    
+    
+    // const filter = cartProducts.filter(current => current.id === product.id);
+    // if (newAmount > filter.length){
+    //   console.log("hay que sumar 1");
+    // }
+    // if (newAmount < filter.length){
+    //   console.log("hay que restar 1");
+    // }
+    // console.log("cartProducts",cartProducts);
+    // console.log("product",product);
+    // console.log("new amount",newAmount);
+  
+    // console.log(filter);
   };
 
   useEffect(() => {
-    if (cartProducts.length > 0){      
-      let reducedList = onHandleReduceCartProducts();
+      const reducedList = onHandleReduceCartProducts();
       setCartProductsList(reducedList);   
-    }
+
   }, [cartProducts])
   
   return (   

@@ -1,12 +1,12 @@
 import React, { useState, useEffect }  from 'react'
 import { ItemCountCart } from '../../components';
 
-export const Cart = ({cartProductsList}) => {
+export const Cart = ({cartProductsList, onUpdateCartProducts}) => {
 
   const [productIdsList, setProductIdsList] = useState([]);
 
   const onHandleChangeAmountProducts = (product, newAmount) =>{
-    console.log("modifiedProduct",product, newAmount);
+    onUpdateCartProducts(product, newAmount);
   };
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export const Cart = ({cartProductsList}) => {
         productIdsList.map(index=>(
           <div>
             <ItemCountCart             
-              productInfo = {cartProductsList[index][0]}
+              productInfo = {cartProductsList[index] ? cartProductsList[index][0] : {} }
               onHandleChangeAmountProducts = {onHandleChangeAmountProducts}
               />
           </div>
