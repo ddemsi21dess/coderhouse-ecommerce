@@ -59,7 +59,7 @@ export const ItemDetail = ({ productId,onHandleAddCartProduct }) => {
                 {product.description ? product.description : ''}
             </div>
             <div className='item-selectors'>             
-              <ItemCount minBuyOrder={product.minBuyOrder} stockValue={product.stock} onAddProducts={onAddProducts}/>
+              <ItemCount minBuyOrder={product.minBuyOrder} stockValue={product.stock} onAddProducts={onAddProducts} controlsEnabled={true}/>
             </div>
             <div>
               

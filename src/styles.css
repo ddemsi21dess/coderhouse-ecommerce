@@ -207,6 +207,17 @@
     border-radius: 2px;
   }
 
+  .add-product-disabled{
+    width: 130px;
+    height: 35px;
+    margin-left:5px;
+    background-color: #ccc;
+    color:white;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
 
   .details-btn{
     width: 130px;

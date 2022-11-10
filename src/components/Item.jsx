@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { ItemCount } from './ItemCount'
 
@@ -11,13 +11,29 @@ export const Item = ({
   ,image
   ,product
   ,onHandleAddCartProduct
+  ,cartProductsList
 }) => {
   
   const navigate = useNavigate();
+  const [controlsEnabled, setControlsEnabled] = useState(true);
   
   const onAddProducts = (counter) =>{
     const newProduct = [{...product, amount: counter}];
-    onHandleAddCartProduct(newProduct);  
+
+    if (cartProductsList && cartProductsList[id] && cartProductsList[id][0] && cartProductsList[id][0].amount){
+      if (cartProductsList[id][0].amount >= stock){
+        setControlsEnabled(false)
+      } else{
+        setControlsEnabled(true);
+        onHandleAddCartProduct(newProduct); 
+      }
+    }else{
+      
+      setControlsEnabled(true);
+      onHandleAddCartProduct(newProduct); 
+    }
+
+
   }
 
   const onHandleSeeDetails = () => navigate(`/item/${id}`);
@@ -36,7 +52,7 @@ export const Item = ({
               <img src= {image} alt='producto' className='product-image' />   
             </div>
             <div className='item-selectors'>             
-              <ItemCount minBuyOrder={minBuyOrder} stockValue={stock} onAddProducts={onAddProducts}/>
+              <ItemCount minBuyOrder={minBuyOrder} stockValue={stock} onAddProducts={onAddProducts} controlsEnabled={controlsEnabled}/>
             </div>
             <div className='item-title'>
               <button className='details-btn' onClick={onHandleSeeDetails}>Ver detalles</button>
