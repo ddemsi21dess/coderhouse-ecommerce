@@ -11,13 +11,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Logo from './../resources/logo.png';
 import LoginImage from './../resources/login.png';
 
-export const Navbar = () => {
+export const Navbar = ({total}) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   
   const [activeHome, setActiveHome] = useState(false);
   const [categoryName, setCategoryName] = useState(undefined);
-  const [totalProducts, setTotalProducts] = useState(0);
 
   const showHomePage = () => navigate('/');
   const showCartPage = () => navigate('/cart');
@@ -84,7 +83,7 @@ export const Navbar = () => {
                     <li className="nav-menu-item ">
                         <a className="logo nav-link" onClick={showCartPage}>
                            
-                            <CartWidget products={totalProducts}/>
+                            <CartWidget products={total}/>
                         </a>
                     </li>
                     <li className="nav-menu-item " key='login'>                        

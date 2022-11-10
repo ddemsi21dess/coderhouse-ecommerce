@@ -7,7 +7,7 @@ export const AppRouter = ({onHandleAddCartProduct,cartProductsList,onRemoveProdu
   return (
     <>
        <Routes>
-            <Route exact path="/"  element={<Home onHandleAddCartProduct = {onHandleAddCartProduct}/>} />            
+            <Route exact path="/"  element={<Home onHandleAddCartProduct = {onHandleAddCartProduct} />} />            
             <Route exact path="/category/:id" element={<Category onHandleAddCartProduct = {onHandleAddCartProduct}/>} />
             <Route exact path="/item/:id" element={<Detail onHandleAddCartProduct = {onHandleAddCartProduct}/>} />
             <Route exact path="/cart" element={<Cart cartProductsList = {cartProductsList} onRemoveProducts = {onRemoveProducts}/>} />

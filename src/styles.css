@@ -377,6 +377,14 @@
 /*---------------------------------*/
   /*------Cart Counter--------*/
   /*---------------------------------*/
+  .cart-title{
+    font-size:20px;
+    margin-bottom:15px;
+  }
+  .cart-container{
+    display: flex;
+    justify-content: center;
+  }
   .list-item-cart{
     list-style: none;
   }
@@ -417,4 +425,20 @@
   }
   .remove-product:hover{    
     background-color: #719ECE;
+  }
+
+
+  table{
+    border: 1px solid #ccc;
+  }
+
+  table td {
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+
+  table thead tr td {
+    width: 350px;
+    background-color: #eee;
+    font-weight: bold;
   }

@@ -16,13 +16,30 @@ export const ItemCountCart = ({ productInfo,onRemoveProducts }) => {
   }, [productInfo]);
   return (
     <>
-    { counter > 0 ?
-        <div className='item-count-container'>
-        <span>{` ${productInfo.title}   Precio Unitario: ${productInfo.price}  ` }</span>        
-        <input className='input-counter' type='text' value={counter} onChange={onInputChange}></input>  
-        <button className='remove-product' onClick={onHandleChangeAmountProducts}>Eliminar</button>
-        <span>{`  Total: ${counter * productInfo.price}` }</span>
-      </div> : ''
+    { counter > 0 
+    
+      ?        
+        <tr>
+          <td>
+            <span>{` ${productInfo.title}` }</span>     
+          </td>
+          <td>
+            {`${productInfo.price}`}
+          </td>
+          <td> 
+            <input className='input-counter' type='text' value={counter} onChange={onInputChange}></input>  
+          </td>
+          <td>
+            <button className='remove-product' onClick={onHandleChangeAmountProducts}>Eliminar</button>
+          </td>
+          <td>
+            <span>{ `$ ${counter * productInfo.price}` }</span>
+          </td>
+         
+        </tr>      
+      
+      
+      : ''
     }
    
     </>

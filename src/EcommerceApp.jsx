@@ -14,6 +14,8 @@ export const EcommerceApp = () => {
   // summary list grouped by type of product
   const [cartProductsList, setCartProductsList] = useState([]);
   
+  const [total, setTotal] = useState(0);
+
   const onHandleAddCartProduct  = (newProduct) => setCartProducts(current => [ ...current, ...newProduct ]);
   
   const onHandleReduceCartProducts = () =>{
@@ -29,6 +31,13 @@ export const EcommerceApp = () => {
       return reducedItems;
     }, {});
 
+    const keys= Object.keys(result);
+    let total = 0;
+    keys.forEach((key)=>{
+      total += result[key][0].amount;
+    });
+    setTotal(total);
+    
     return result;
   }
 
@@ -40,11 +49,12 @@ export const EcommerceApp = () => {
       const reducedList = onHandleReduceCartProducts();
       setCartProductsList(reducedList);   
 
-  }, [cartProducts])
+  }, [cartProducts]);
+
   
   return (   
     <>
-      <Navbar/>
+      <Navbar total= {total}/>
       <AppRouter 
         onHandleAddCartProduct = {onHandleAddCartProduct} 
         cartProductsList={cartProductsList} 
