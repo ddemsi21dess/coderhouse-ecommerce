@@ -6,6 +6,7 @@ import { Home, Detail, Cart, Category } from '../pages'
 export const AppRouter = ({onHandleAddCartProduct,cartProductsList,onRemoveProducts}) => {
   return (
     <>
+
        <Routes>
             <Route exact path="/"  element={<Home onHandleAddCartProduct = {onHandleAddCartProduct} cartProductsList={cartProductsList}/>} />            
             <Route exact path="/category/:id" element={<Category onHandleAddCartProduct = {onHandleAddCartProduct} cartProductsList={cartProductsList}/>} />
@@ -13,6 +14,7 @@ export const AppRouter = ({onHandleAddCartProduct,cartProductsList,onRemoveProdu
             <Route exact path="/cart" element={<Cart cartProductsList = {cartProductsList} onRemoveProducts = {onRemoveProducts}/>} />
             <Route path="*" element={<Navigate to="/" /> } />
         </Routes>
+        
     </>
   )
 }
