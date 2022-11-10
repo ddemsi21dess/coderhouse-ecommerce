@@ -1,10 +1,10 @@
 import React from 'react'
 import { ItemList } from './ItemList'
 
-export const ItemListContainer = ({ categoryId }) => {
+export const ItemListContainer = ({ categoryId,onHandleAddCartProduct }) => {
   return (
     <>
-        <ItemList categoryId = { categoryId }/>        
+        <ItemList categoryId = { categoryId } onHandleAddCartProduct= {onHandleAddCartProduct}/>        
     </>
   )
 }

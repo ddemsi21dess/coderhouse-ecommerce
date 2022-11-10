@@ -9,13 +9,18 @@ export const Item = ({
   ,stock
   ,minBuyOrder
   ,image
+  ,product
+  ,onHandleAddCartProduct
 }) => {
   
   const navigate = useNavigate();
   
   const onAddProducts = (counter) =>{
     console.log(`Agregar al carrito ${counter} productos`);
-    console.log(`ProductId: ${id}  / Title: ${title} / Price: ${price}`);     
+    console.log(`ProductId: ${id}  / Title: ${title} / Price: ${price}`);  
+
+    const newProduct = [{...product, amount: counter}];
+    onHandleAddCartProduct(newProduct);  
   }
 
   const onHandleSeeDetails = () => navigate(`/item/${id}`);

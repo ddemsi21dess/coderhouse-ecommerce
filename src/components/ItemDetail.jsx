@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 
 import { ItemCount } from './ItemCount';
 
-export const ItemDetail = ({ productId }) => {
+export const ItemDetail = ({ productId,onHandleAddCartProduct }) => {
 
 
     const [product, setProduct] = useState({});
@@ -10,7 +10,9 @@ export const ItemDetail = ({ productId }) => {
 
     const onAddProducts = (counter) =>{
       console.log(`Agregar al carrito ${counter} productos`);           
-      console.log(`ProductId: ${product.id}  / Title: ${product.title} / Price: ${product.price}`);   
+      console.log(`ProductId: ${product.id}  / Title: ${product.title} / Price: ${product.price}`);  
+      const newProduct = [{...product, amount: counter}];
+      onHandleAddCartProduct(newProduct);  
     }
 
     const getItem = async () => {
