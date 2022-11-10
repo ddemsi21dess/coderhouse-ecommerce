@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 
 import { Home, Detail, Cart, Category } from '../pages'
 
-export const AppRouter = ({onHandleAddCartProduct,cartProductsList}) => {
+export const AppRouter = ({onHandleAddCartProduct,cartProductsList,onUpdateCartProducts}) => {
   return (
     <>
        <Routes>

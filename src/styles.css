@@ -373,3 +373,46 @@
     max-width: 430px;
     max-height: 430px;
   }
+
+/*---------------------------------*/
+  /*------Cart Counter--------*/
+  /*---------------------------------*/
+
+
+  .waring-button-max-limit-reached{
+    height: 35px;
+    margin-left:0px;
+    border:1px solid #ccc;
+    border-left:1px solid #ccc;
+    width: 40px;
+    background-color: #ccc;
+    color:white;
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+  }
+
+  .waring-button-min-limit-reached{
+    height: 35px;
+    margin-left:0px;
+    border:1px solid #ccc;
+    border-left:1px solid #ccc;
+    width: 40px;
+    background-color: #ccc;
+    color:white;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+  }
+  
+  .remove-product{
+    width: 130px;
+    height: 35px;
+    margin-left:5px;
+    background-color: #c71245;
+    color:white;
+    border:1px solid #8c8c8c;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .remove-product:hover{    
+    background-color: #719ECE;
+  }
