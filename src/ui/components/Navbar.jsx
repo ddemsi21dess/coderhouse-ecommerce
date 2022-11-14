@@ -1,17 +1,15 @@
-import React, { useEffect , useState } from 'react'
+import React, { useCallback, useEffect , useState, useContext } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom';
 
+import { CartContext } from '../../context/CartContext';
 
 import { CartWidget } from './CartWidget';
 import { NavbarItem } from './NavbarItem';
 
 import { menuItems } from '../../data/menuItems';
-import { useLocation, useNavigate } from 'react-router-dom';
 
-
-import Logo from './../resources/logo.png';
 import LoginImage from './../resources/login.png';
-import { useContext } from 'react';
-import { CartContext } from '../../context/CartContext';
+import Logo from './../resources/logo.png';
 
 export const Navbar = () => {
 
@@ -37,7 +35,33 @@ export const Navbar = () => {
     if (pathname === '/') setActiveHome(true);  
   
   }, [pathname])
-  
+
+
+//   const debounce = (func, wait) => {
+//     let timeout;
+
+//         return function executedFunction(...args) {
+//             console.log("args",args);
+//             const later = () => {
+//                 clearTimeout(timeout);
+//                 func(...args);
+//             }
+
+//             clearTimeout(timeout);
+//             timeout = setTimeout(later, wait);
+//         }
+//   }
+//   const onHandleChange = useCallback(debounce((e) => {
+//         // const searchValue = e.target.value.toLowerCase();
+//         // const deleteVowels = searchValue.replace(/[aeiou]/g, '');
+//         // inputRef.current.value = deleteVowels;
+//         // console.log(searchValue);
+//         // const newPokemons = pokemons.filter(pokemon => pokemon.name.includes(searchValue));
+//         // setFilteredPokemons(newPokemons);
+//     }, 500), []);
+const onHandleChange = () =>{
+    
+}
   
   return (
     <>            
@@ -81,7 +105,7 @@ export const Navbar = () => {
 
                 <ul className="nav-menu">
                     <li className="nav-menu-item" key='search'>
-                        <input className='input-search' placeholder='Buscar' type='text'></input>
+                        <input className='input-search' placeholder='Buscar' type='text' onChange={onHandleChange}></input>
                         <button className='search-button'>Ir</button>
                     </li>
                     <li className="nav-menu-item ">
