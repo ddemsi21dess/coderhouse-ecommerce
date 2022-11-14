@@ -40,28 +40,23 @@ export const Navbar = () => {
 //   const debounce = (func, wait) => {
 //     let timeout;
 
-//         return function executedFunction(...args) {
-//             console.log("args",args);
-//             const later = () => {
-//                 clearTimeout(timeout);
-//                 func(...args);
-//             }
-
+//     return function executedFunction(...args) {
+//         const later = () => {
 //             clearTimeout(timeout);
-//             timeout = setTimeout(later, wait);
+//             func(...args);
 //         }
+
+//         clearTimeout(timeout);
+//         timeout = setTimeout(later, wait);
+//     }
 //   }
 //   const onHandleChange = useCallback(debounce((e) => {
-//         // const searchValue = e.target.value.toLowerCase();
-//         // const deleteVowels = searchValue.replace(/[aeiou]/g, '');
-//         // inputRef.current.value = deleteVowels;
-//         // console.log(searchValue);
-//         // const newPokemons = pokemons.filter(pokemon => pokemon.name.includes(searchValue));
-//         // setFilteredPokemons(newPokemons);
+//         const searchValue = e.target.value.toLowerCase();
 //     }, 500), []);
-const onHandleChange = () =>{
-    
-}
+
+    const onHandleChange = () =>{
+        
+    }
   
   return (
     <>            
