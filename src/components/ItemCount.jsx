@@ -36,6 +36,11 @@ export const ItemCount = ({
   const onInputChange = () =>{
 
   };
+  const onAddProductsCart = () =>{
+    if (counter > stockValue) return;
+    onAddProducts(counter);
+    setCounter(1);
+  }
   
   return (
     <>
@@ -43,7 +48,7 @@ export const ItemCount = ({
         <button className= 'counter-button subtract-button' onClick={onSubtract}>-</button>
         <input  className='input-counter' type='text' value={counter} onChange={onInputChange}></input>
         <button className='counter-button add-button'  onClick={onAdd}>+</button>
-        <button className= 'add-product' onClick={()=> onAddProducts(counter)}>Agregar al carrito</button>  
+        <button className= {counter <= stockValue ? 'add-product' : 'add-product-disabled'} onClick={onAddProductsCart}>Agregar al carrito</button>  
     </div>
     </>
   )

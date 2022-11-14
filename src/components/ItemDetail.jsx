@@ -6,14 +6,19 @@ import { ItemCount } from './ItemCount';
 
 export const ItemDetail = ({ productId }) => {
 
-    const { addItem } =  useContext(CartContext);
+  const { addItem ,products } =  useContext(CartContext);
+  
+      const [product, setProduct] = useState({});
+      const [showDetails, setShowDetails] = useState(true);
 
-    const [product, setProduct] = useState({});
-    const [showDetails, setShowDetails] = useState(true);
+    
+  const [availableStock, setAvailableStock] = useState(1)
 
     const onAddProducts = (counter) =>{
       addItem(product,counter);
     }
+
+
 
     const getItem = async () => {
       try {
@@ -23,7 +28,9 @@ export const ItemDetail = ({ productId }) => {
           const result = await Promise.all(promises);
 
           if (result && result[0] && result[0].categoryId){  
-            setProduct(result[0]);         
+            setProduct(result[0]); 
+            console.log("result[0]",result[0]);   
+            setAvailableStock(result[0].stock);     
             setShowDetails(true);    
           } else {
             setShowDetails(false);
@@ -41,6 +48,14 @@ export const ItemDetail = ({ productId }) => {
 
   }, [productId]);
 
+  useEffect(() => {
+    const productInCart = products.find(item => item.id === productId);
+    if ( !!productInCart ){
+
+      setAvailableStock(productInCart.stock - productInCart.quantity);
+    }
+  }, [products])
+  
 
   return (
     <>
@@ -61,7 +76,10 @@ export const ItemDetail = ({ productId }) => {
                 {product.description ? product.description : ''}
             </div>
             <div className='item-selectors'>             
-              <ItemCount minBuyOrder={product.minBuyOrder} stockValue={product.stock} onAddProducts={onAddProducts} controlsEnabled={true}/>
+              <ItemCount minBuyOrder={product.minBuyOrder} stockValue={availableStock} onAddProducts={onAddProducts} controlsEnabled={true}/>
+            </div>
+            <div className='item-available-products'>
+              <h4>{`Productos disponibles: ${availableStock}`}</h4> 
             </div>
             <div>
               
