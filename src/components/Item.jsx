@@ -23,6 +23,7 @@ export const Item = ({
 
   const onAddProducts = (counter) =>{
     addItem(product , counter);
+  
   }
 
   useEffect(() => {
