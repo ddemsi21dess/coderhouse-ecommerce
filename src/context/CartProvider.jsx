@@ -26,11 +26,11 @@ export const CartProvider = ({ children }) => {
     }
 
     const removeItem = ( itemId ) =>{
-
+      setProducts(current => current.filter((item)=> item.id !== itemId));    
     }
 
     const clear = () => {
-
+      setProducts([]);
     }
 
     const isInCart = ( id ) => !!products.find(item => item.id === id);

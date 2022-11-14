@@ -1,15 +1,22 @@
+import { clear } from '@testing-library/user-event/dist/clear';
 import React, { useContext }  from 'react'
 import { ItemCart } from '../../components/ItemCart';
 import { CartContext } from '../../context/CartContext';
 
 export const Cart = () => {
 
-  const { products } = useContext(CartContext);
+  const { products, clear } = useContext(CartContext);
  
   return (
     <>
     
     <h3  className='cart-container cart-title'> Lista de productos en el carrito</h3>
+    
+    <div className='remove-all-products-container'>
+      <button className='remove-all-products' onClick={() => clear()}> Borrar todo </button>    
+
+    </div>
+       
     <div className='cart-container'>
      
       <table>
@@ -30,7 +37,7 @@ export const Cart = () => {
         }
       </table>
     </div>
-
+   
     </>
 
   )

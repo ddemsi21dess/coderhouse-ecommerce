@@ -453,3 +453,29 @@
     background-color: #eee;
     font-weight: bold;
   }
+
+
+  .remove-all-products-container {
+    display: flex;
+    justify-content: right;
+    margin-right: 10vw;
+    margin-bottom:20px;
+  }
+
+  .remove-all-products{
+    width: 150px;
+    height: 55px;
+    margin-left:5px;
+    background-color: #c71245;
+    color:white;
+    border:1px solid #8c8c8c;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+    
+  
+  }
+  .remove-all-products:hover{    
+    background-color: #719ECE;
+  }

@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useContext }  from 'react'
+import { CartContext } from '../context/CartContext'
 
 export const ItemCart = ({ product }) => {
+  
+  const { removeItem } = useContext(CartContext);
+
   return (
     <>
       {
@@ -16,7 +20,7 @@ export const ItemCart = ({ product }) => {
            <span>{product.quantity ? product.quantity : 'NaN' }</span>
          </td>
          <td>
-           <button className='remove-product'>Eliminar</button>
+           <button className='remove-product' onClick={() => removeItem(product.id)}>Eliminar</button>
          </td>
          <td>
            <span>{ `$ ${product.price * 1}` }</span>
