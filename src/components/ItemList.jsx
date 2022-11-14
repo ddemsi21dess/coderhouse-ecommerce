@@ -6,7 +6,7 @@ import { getProductsByCategoryId } from '../helpers';
 import { Loading } from '../ui/components';
 import { Item } from './Item'
 
-export const ItemList = ({ categoryId, onHandleAddCartProduct, cartProductsList }) => {
+export const ItemList = ({ categoryId }) => {
   const [products, setProducts] = useState(undefined);  
  
 
@@ -42,8 +42,6 @@ export const ItemList = ({ categoryId, onHandleAddCartProduct, cartProductsList 
                 key={product.id}  
                 {...product}
                 product = {product}
-                onHandleAddCartProduct = { onHandleAddCartProduct }
-                cartProductsList = {cartProductsList}
             />
           ))
           : <Loading/>

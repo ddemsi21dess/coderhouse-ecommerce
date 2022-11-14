@@ -1,9 +1,9 @@
 import React from 'react';
 import { ItemListContainer } from '../../components';
 
-export const Home = ({onHandleAddCartProduct,cartProductsList}) => {
+export const Home = () => {
   return (
-    <ItemListContainer  onHandleAddCartProduct = {onHandleAddCartProduct} cartProductsList={cartProductsList}/>
+    <ItemListContainer />
   )
 }
 

@@ -11,46 +11,18 @@ export const Item = ({
   ,minBuyOrder
   ,image
   ,product
-  ,onHandleAddCartProduct
-  ,cartProductsList
 }) => {
   
-  const { addItem } =  useContext(CartContext)
-
-
+  const { addItem } =  useContext(CartContext);
 
   const navigate = useNavigate();
-  const [controlsEnabled, setControlsEnabled] = useState(true);
-  
-  const onAddProducts = (counter) =>{
-
-    // When context is ready remove all these lines
-    const newProduct = [{...product, amount: counter}];
-
-    if (cartProductsList && cartProductsList[id] && cartProductsList[id][0] && cartProductsList[id][0].amount){
-      if (cartProductsList[id][0].amount >= stock){
-        setControlsEnabled(false)
-      } else{
-        setControlsEnabled(true);
-        onHandleAddCartProduct(newProduct); 
-      }
-    }else{
-      
-      setControlsEnabled(true);
-      onHandleAddCartProduct(newProduct); 
-    }
-
-
-
-
-    // CONTEXT 
-    addItem(product , counter);
-
-
-
-  }
 
   const onHandleSeeDetails = () => navigate(`/item/${id}`);
+
+  const onAddProducts = (counter) =>{
+    addItem(product , counter);
+  }
+
     
   
   return (
@@ -66,7 +38,7 @@ export const Item = ({
               <img src= {image} alt='producto' className='product-image' />   
             </div>
             <div className='item-selectors'>             
-              <ItemCount minBuyOrder={minBuyOrder} stockValue={stock} onAddProducts={onAddProducts} controlsEnabled={controlsEnabled}/>
+              <ItemCount minBuyOrder={minBuyOrder} stockValue={stock} onAddProducts={onAddProducts} />
             </div>
             <div className='item-title'>
               <button className='details-btn' onClick={onHandleSeeDetails}>Ver detalles</button>

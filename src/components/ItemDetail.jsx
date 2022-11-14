@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from 'react'
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 
 import { ItemCount } from './ItemCount';
 
-export const ItemDetail = ({ productId,onHandleAddCartProduct }) => {
+export const ItemDetail = ({ productId }) => {
 
+    const { addItem } =  useContext(CartContext);
 
     const [product, setProduct] = useState({});
     const [showDetails, setShowDetails] = useState(true);
 
     const onAddProducts = (counter) =>{
-      const newProduct = [{...product, amount: counter}];
-      onHandleAddCartProduct(newProduct);  
+      addItem(product,counter);
     }
 
     const getItem = async () => {

@@ -23,7 +23,7 @@ export const ItemCart = ({ product }) => {
            <button className='remove-product' onClick={() => removeItem(product.id)}>Eliminar</button>
          </td>
          <td>
-           <span>{ `$ ${product.price * 1}` }</span>
+           <span>{ `$ ${product.price * product.quantity}` }</span>
          </td>
         
        </tr>      

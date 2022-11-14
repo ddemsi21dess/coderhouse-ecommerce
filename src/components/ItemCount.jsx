@@ -6,7 +6,6 @@ export const ItemCount = ({
   onAddProducts 
   ,minBuyOrder = 1 
   ,stockValue = undefined
-  ,controlsEnabled
 }) => {
 
   const [counter, setCounter] = useState(minBuyOrder);
@@ -44,7 +43,7 @@ export const ItemCount = ({
         <button className= 'counter-button subtract-button' onClick={onSubtract}>-</button>
         <input  className='input-counter' type='text' value={counter} onChange={onInputChange}></input>
         <button className='counter-button add-button'  onClick={onAdd}>+</button>
-        <button className={controlsEnabled ? 'add-product' : 'add-product-disabled'}  onClick={()=> controlsEnabled ? onAddProducts(counter) : {}}>Agregar al carrito</button>  
+        <button className= 'add-product' onClick={()=> onAddProducts(counter)}>Agregar al carrito</button>  
     </div>
     </>
   )
