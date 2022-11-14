@@ -3,6 +3,7 @@ import React, { useState , useEffect }  from 'react';
 import { AppRouter } from './router/AppRouter';
 import { Navbar } from './ui/components';
 import './styles.css';
+import { CartProvider } from './context/CartProvider';
 
 
 export const EcommerceApp = () => {
@@ -54,12 +55,14 @@ export const EcommerceApp = () => {
   
   return (   
     <>
-      <Navbar total= {total}/>
-      <AppRouter 
-        onHandleAddCartProduct = {onHandleAddCartProduct} 
-        cartProductsList={cartProductsList} 
-        onRemoveProducts = {onRemoveProducts}
-      />
+      <CartProvider>
+          <Navbar />
+          <AppRouter 
+            onHandleAddCartProduct = {onHandleAddCartProduct} 
+            cartProductsList={cartProductsList} 
+            onRemoveProducts = {onRemoveProducts}
+          />
+      </CartProvider>
     </>    
   )
 }

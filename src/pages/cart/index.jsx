@@ -1,15 +1,13 @@
-import React, { useState, useEffect }  from 'react'
-import { ItemCountCart } from '../../components';
+import React, { useContext }  from 'react'
+import { ItemCart } from '../../components/ItemCart';
+import { CartContext } from '../../context/CartContext';
 
-export const Cart = ({cartProductsList, onRemoveProducts}) => {
+export const Cart = () => {
 
-  const [productIdsList, setProductIdsList] = useState([]);
+  const { products } = useContext(CartContext);
+ 
   
-  useEffect(() => {
-    setProductIdsList([]);
-    setProductIdsList(Object.keys(cartProductsList));    
-  }, [cartProductsList])
-  
+  console.log("products all",products);
   return (
     <>
     
@@ -28,12 +26,9 @@ export const Cart = ({cartProductsList, onRemoveProducts}) => {
           </tr>
         </thead>
         {
-          productIdsList.map(index=>(
-            <ItemCountCart             
-                productInfo = {cartProductsList[index] ? cartProductsList[index][0] : {} }
-                onRemoveProducts = {onRemoveProducts}
-                />
-          ))        
+          products.map( product=>(
+            <ItemCart product = { product }/>      
+          ))
         }
       </table>
     </div>

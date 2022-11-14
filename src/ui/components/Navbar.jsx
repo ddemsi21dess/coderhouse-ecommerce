@@ -10,8 +10,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 
 import Logo from './../resources/logo.png';
 import LoginImage from './../resources/login.png';
+import { useContext } from 'react';
+import { CartContext } from '../../context/CartContext';
 
-export const Navbar = ({total}) => {
+export const Navbar = () => {
+
+  const { total } =  useContext(CartContext);  
   const navigate = useNavigate();
   const { pathname } = useLocation();
   

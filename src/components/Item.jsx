@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState , useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { CartContext } from '../context/CartContext';
 import { ItemCount } from './ItemCount'
 
 export const Item = ({
@@ -14,10 +15,16 @@ export const Item = ({
   ,cartProductsList
 }) => {
   
+  const { addItem } =  useContext(CartContext)
+
+
+
   const navigate = useNavigate();
   const [controlsEnabled, setControlsEnabled] = useState(true);
   
   const onAddProducts = (counter) =>{
+
+    // When context is ready remove all these lines
     const newProduct = [{...product, amount: counter}];
 
     if (cartProductsList && cartProductsList[id] && cartProductsList[id][0] && cartProductsList[id][0].amount){
@@ -32,6 +39,13 @@ export const Item = ({
       setControlsEnabled(true);
       onHandleAddCartProduct(newProduct); 
     }
+
+
+
+
+    // CONTEXT 
+    addItem(product , counter);
+
 
 
   }
