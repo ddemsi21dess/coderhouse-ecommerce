@@ -6,3 +6,4 @@ export * from './ItemDetail';
 export * from './ItemDetailContainer';
 export * from './Checkout';
 export * from './ItemCart';
+export * from './SearchBar';

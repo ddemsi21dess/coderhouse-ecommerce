@@ -37,27 +37,6 @@ export const Navbar = () => {
   }, [pathname])
 
 
-//   const debounce = (func, wait) => {
-//     let timeout;
-
-//     return function executedFunction(...args) {
-//         const later = () => {
-//             clearTimeout(timeout);
-//             func(...args);
-//         }
-
-//         clearTimeout(timeout);
-//         timeout = setTimeout(later, wait);
-//     }
-//   }
-//   const onHandleChange = useCallback(debounce((e) => {
-//         const searchValue = e.target.value.toLowerCase();
-//     }, 500), []);
-
-    const onHandleChange = () =>{
-        
-    }
-  
   return (
     <>            
         <header className="header">
@@ -99,10 +78,10 @@ export const Navbar = () => {
 
 
                 <ul className="nav-menu">
-                    <li className="nav-menu-item" key='search'>
+                    {/* <li className="nav-menu-item" key='search'>
                         <input className='input-search' placeholder='Buscar' type='text' onChange={onHandleChange}></input>
                         <button className='search-button'>Ir</button>
-                    </li>
+                    </li> */}
                     <li className="nav-menu-item ">
                         <a className="logo nav-link" onClick={showCartPage}>
                            

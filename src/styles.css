@@ -68,43 +68,7 @@
     font-size:35px !important;
   }
   
-  .input-search{
-    height:35px;
-    width: 250px;
-    background-color: #eee;  
-    border: none; /* <-- This thing here */
-    border-top-left-radius: 5px;
-    border-end-start-radius: 5px;
-  
-  }
-  
-  .input-search::placeholder {
-    text-align: center; 
-    
-  }
-  
-  .input-search:focus{
-    outline: none !important;
-    border:2px solid #719ECE;;
-    box-shadow: 0 0 10px #719ECE;
-  }
-  .search-button{
-    height: 35px;
-    margin-left:0px;
-    border:1px solid #034574;
-    border-left:1px solid #ccc;
-    border-radius: 2px;
-    width: 40px;
-    background-color: #034574;
-    color:white;
-    cursor: pointer;
-  }
-  
-  .search-button:hover{
-    background-color: #719ECE;
-    border: 2px solid #034574;
-    border-radius: 2px;
-  }
+
   
   .user-name{
     font-size: 20px;
@@ -486,3 +450,76 @@
   .remove-all-products:hover{    
     background-color: #719ECE;
   }
+
+
+  
+  /*---------*/
+  /* Search bar*/
+   /*--------*/
+.search-container{
+  display: flex;
+  justify-content: center;
+}
+
+.input-search{
+  height:50px;
+  width: 40vw;
+  background-color: #eee;  
+  border: 1px solid #ccc; 
+  border-top-left-radius: 5px;
+  border-end-start-radius: 5px;
+  font-size:24px;
+  text-align: center;
+}
+
+.input-search::placeholder {
+  text-align: center; 
+  font-size:24px;
+  
+}
+
+.input-search:focus{
+  outline: none !important;
+  border:2px solid #719ECE;;
+  box-shadow: 0 0 10px #719ECE;
+  text-align: center;
+  
+}
+
+.input-search:focus::placeholder {
+  color: transparent;
+}
+
+
+.clean-button-disabled{
+  height: 50px;
+  margin-left:0px;
+  background-color: #ccc;
+  color:white;
+  border:1px solid #ccc;
+  border-radius: 2px;
+  width: 40px;
+  cursor: pointer;
+  font-size:20px;
+  font-weight: bold;
+}
+
+
+.clean-button{
+  height: 50px;
+  margin-left:0px;
+  border:1px solid #034574;
+  border-radius: 2px;
+  width: 40px;
+  background-color: #034574;
+  color:white;
+  cursor: pointer;
+  font-size:20px;
+  font-weight: bold;
+}
+
+.clean-button:hover{
+  background-color: #719ECE;
+  border: 2px solid #034574;
+  border-radius: 2px;
+}
