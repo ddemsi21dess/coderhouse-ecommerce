@@ -6,8 +6,6 @@ export const Cart = () => {
 
   const { products } = useContext(CartContext);
  
-  
-  console.log("products all",products);
   return (
     <>
     
