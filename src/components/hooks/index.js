@@ -1,2 +1,2 @@
 export * from './useFetchByCategory';
-export * from './useFetch';
+export * from './useFetchByProduct';
