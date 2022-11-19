@@ -12,7 +12,6 @@ import './styles.css';
 
 export const EcommerceApp = () => {
 
-  // const [item, setItem] = useState(null);
   const [products, setProducts] = useState([]);
   
     useEffect(() => {
@@ -27,19 +26,6 @@ export const EcommerceApp = () => {
     
     console.log("products",products);
 
-  // useEffect(() => {
-  //    const db = getFirestore();
-  //    const product = doc(db,'products','AzAnANffv0czD2nqeEnO');
-
-  //    getDoc(product)
-  //     .then((snapshot) => {
-  //       if (snapshot.exists()){
-  //         setItem({id: snapshot.id , ...snapshot.data()});
-  //       }
-  //     })
-  // }, [])
-  
-  // console.log("item",item);
   
   return (   
     <>
