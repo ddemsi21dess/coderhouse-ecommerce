@@ -13,7 +13,7 @@ export const ItemList = ({ categoryId }) => {
   
   return (
     <>
-     <SearchBar/>
+     {/* <SearchBar/> */}
       <div className='list-items'>
        
         {

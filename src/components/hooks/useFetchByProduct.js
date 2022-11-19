@@ -12,9 +12,14 @@ export const useFetchByProduct = ( url ,productId, cartProducts ) => {
     return productInCart.stock - productInCart.quantity;
   };
 
+  useEffect(() => {
+    
+    setLoading(true);
+  
+  }, [url, productId])
+  
 
   useEffect(() => {
-        setLoading(true);
 
         fetch(url)
             .then((res)=> res.json())

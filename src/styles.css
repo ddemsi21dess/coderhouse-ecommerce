@@ -367,6 +367,15 @@
     display: flex;
     justify-content: center;
   }
+  .cart-container-totals{
+    display: flex;
+    justify-content: center;
+    margin-top:20px;
+  }
+
+  .no-border{
+    border: none;
+  }
   .list-item-cart{
     list-style: none;
   }
@@ -451,6 +460,31 @@
     background-color: #719ECE;
   }
 
+
+
+  .back-to-main-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom:20px;
+  }
+
+  .back-to-main{
+    width: 200px;
+    height: 55px;
+    margin-left:5px;
+    background-color: #db9f37;
+    color:white;
+    border:1px solid #8c8c8c;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+    
+  
+  }
+  .back-to-main:hover{    
+    background-color: #719ECE;
+  }
 
   
   /*---------*/
