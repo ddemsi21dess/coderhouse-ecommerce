@@ -11,7 +11,7 @@ export const ItemCart = ({ product }) => {
        product ?     
        <tr>
          <td>
-           <span>{` ${product.title}` }</span>     
+           <span>{` ${product.name}` }</span>     
          </td>
          <td>
            {`${product.price}`}

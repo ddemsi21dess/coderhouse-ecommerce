@@ -1,25 +1,22 @@
 import React from 'react'
 
-import { useFetchByCategory } from './hooks';
+import { useFetch } from './hooks';
 
 import { Item } from './Item'
 import { Loading } from '../ui/components';
-import { SearchBar } from './SearchBar';
 
 export const ItemList = ({ categoryId }) => {
- 
-  const { data, loading } = useFetchByCategory('https://6361a329af66cc87dc2f8a2e.mockapi.io/initial/products/products', categoryId);
-
   
+  const { items, isLoading } = useFetch(categoryId,null);
+ 
   return (
-    <>
-     {/* <SearchBar/> */}
+    <>     
       <div className='list-items'>
        
         {
-          loading ? <Loading/>
+          isLoading ? <Loading/>
           : 
-          data.map(product=>(
+          items.map(product=>(
             <Item 
                 key={product.id}  
                 {...product}

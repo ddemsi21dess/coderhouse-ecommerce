@@ -6,7 +6,7 @@ export const Category = () => {
 
   const { id } = useParams();
   return (
-    <ItemListContainer categoryId = {id} />
+    <ItemListContainer id = {id} />
   )
 }
 

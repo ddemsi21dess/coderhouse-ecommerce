@@ -1,12 +1,12 @@
-import React, { useState , useContext } from 'react'
-import { useEffect } from 'react';
+import React, { useState , useContext, useEffect } from 'react'
+
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import { ItemCount } from './ItemCount'
 
 export const Item = ({
   id
-  ,title
+  ,name
   ,price
   ,stock
   ,minBuyOrder
@@ -38,7 +38,7 @@ export const Item = ({
     <>
         <div className='item-container'>
             <div className='item-title'>
-              <h3>{title}</h3> 
+              <h3>{name}</h3> 
             </div>
             <div className='item-price'>              
               <h4>{`$  ${price}`}</h4>

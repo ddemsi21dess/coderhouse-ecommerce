@@ -1,8 +1,8 @@
 export const menuItems = [    
-    {id:'televisores'         ,name:'Televisores'  },
-    {id:'celulares'           ,name:'Celulares'    },
-    {id:'climatizacion'       ,name:'Climatización'},
-    {id:'heladeras'           ,name:'Heladeras'    },
-    {id:'herramientas'        ,name:'Herramientas' },
-  ];
+  {id:'celulares'           ,name:'Celulares'    , categoryId: '1'},
+  {id:'televisores'         ,name:'Televisores'  , categoryId: '2'},
+  {id:'climatizacion'       ,name:'Climatización', categoryId: '3'},
+  {id:'heladeras'           ,name:'Heladeras'    , categoryId: '4'},
+  {id:'herramientas'        ,name:'Herramientas' , categoryId: '5'},
+];
   
