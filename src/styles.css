@@ -112,10 +112,10 @@
   .counter-button{
     height: 35px;
     margin-left:0px;
-    border:1px solid #034574;
+    border:1px solid #2968c8;
     border-left:1px solid #ccc;
     width: 40px;
-    background-color: #034574;
+    background-color: #2968c8;
     color:white;
     cursor: pointer;
   }
@@ -129,9 +129,10 @@
   }
   
   .counter-button:hover{
-    background-color: #719ECE;
-    border: 2px solid #034574;
-    border-radius: 2px;
+    /* background-color: #719ECE; */
+    /* border: 2px solid #2968c8; */
+    /* border-radius: 5px; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   
   
@@ -148,33 +149,36 @@
   }
   
   
-  
+/*   
   .input-counter:focus{
-    outline: none !important;
+     outline: none !important;
     border:2px solid #719ECE;;
-    box-shadow: 0 0 10px #719ECE;
-  }
+    box-shadow: 0 0 10px #719ECE; 
+  } */
   
   .add-product{
-    width: 130px;
-    height: 35px;
-    margin-left:5px;
-    background-color: #034574;
+    width: 100%;
+    height: 50px;
+    margin-top:5px;
+    background-color: #2968c8;
     color:white;
-    border:1px solid #034574;
+    border:1px solid #2968c8;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    font-size:16px
   }
   .add-product:hover{    
     background-color: #719ECE;
-    border: 2px solid #034574;
-    border-radius: 2px;
+    border: 2px solid #2968c8;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 
   .add-product-disabled{
-    width: 130px;
-    height: 35px;
-    margin-left:5px;
+    width: 100%;
+    height: 50px;
+    margin-top:5px;
     background-color: #ccc;
     color:white;
     border:1px solid #ccc;
@@ -184,15 +188,21 @@
 
 
   .details-btn{
-    width: 130px;
+    width: 80px;
     height: 35px;
     margin-left:5px;
     margin-top:5px;
-    background-color: #29b3c5;
-    color:white;
-    border:1px solid #034574;
+    background-color: rgba(65,137,230,.2);
+    color:#2968c8;
+    border:1px solid rgba(65,137,230,.2);;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    font-size:16px;
+  }
+
+  .details-btn:hover{
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
   /*--------------------*/
   /* Product container */
@@ -556,4 +566,90 @@
   background-color: #719ECE;
   border: 2px solid #034574;
   border-radius: 2px;
+}
+
+
+
+
+
+  /*--------------------*/
+  /*--- Card  ---*/
+  /*-------------------*/
+  .card {
+    display: flex;
+    flex-direction: column;
+    width: 22rem;
+    justify-content: center;
+    align-items: center;
+    /* height: fit-content; */
+    height: 30rem;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 200ms ease;
+}
+
+.card-details {
+  display: flex;
+  flex-direction: column;
+  width: 50rem;
+  justify-content: center;
+  align-items: center;
+  /* height: fit-content; */
+  height: 50rem;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: all 200ms ease;
+}
+.card-image-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+}
+.card-image {
+    width: 100%;    
+    height: 155px;
+}
+.card-image-details {
+  width: 200px;    
+  height: fit-content;
+}
+.card-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+.card-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #212121;
+   text-align: center;
+}
+.card-price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #212121;
+ text-align: center;
+}
+.card-selectors {
+    font-size: 14px;
+    color: #212121;
+}
+.card-available-products {   
+    margin-top:10px; 
+    font-size: 14px;
+    font-weight: bold;
+    color: #8c8c8c;
+}
+
+.card-description {   
+  margin-top:10px; 
+  font-size: 18px;
+  font-weight: bold;
+  color: #524e4e;
 }

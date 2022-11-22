@@ -36,7 +36,28 @@ export const Item = ({
   
   return (
     <>
-        <div className='item-container'>
+
+        <div className='card' >
+            <div className="card-content">
+              <p className='card-name'>{name}</p>
+              <p className='card-price'>{`$  ${price}`}</p>
+            </div>
+            <div className="card-image-container">
+                <img className="card-image" src={image} alt={name} />
+            </div>
+            
+            <div className="card-content">              
+                <p className='card-available-products'>{`Stock Disponible: ${availableStock}`}</p>
+                <div className='card-selectors'>
+                  <ItemCount minBuyOrder={minBuyOrder} stockValue={availableStock} onAddProducts={onAddProducts} />
+                </div>
+                <p className=''>  
+                  <button className='details-btn' onClick={onHandleSeeDetails}>Ver +</button>
+                </p>
+            </div>
+        </div>
+
+        {/* <div className='item-container'>
             <div className='item-title'>
               <h3>{name}</h3> 
             </div>
@@ -55,7 +76,7 @@ export const Item = ({
             <div className='item-title'>
               <button className='details-btn' onClick={onHandleSeeDetails}>Ver detalles</button>
             </div>
-        </div>
+        </div> */}
     </>
   )
 }
