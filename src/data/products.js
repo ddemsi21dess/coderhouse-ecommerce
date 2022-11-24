@@ -1,0 +1,47 @@
+const products = [
+    {
+        category:"smartphone",
+        categoryId:"1",    
+        description:"Dynamic Island, una forma nueva y mágica de interactuar con tu iPhone.",
+        image:"https://http2.mlstatic.com/D_NQ_NP_2X_651710-MLM51559386433_092022-F.webp",
+        name:"iPhone 14 Pro",
+        price: 1400,
+        stock: 10,
+    },
+    {
+        category:"tv",
+        categoryId:"2",
+        description:"Tecnología HDR para una calidad de imagen mejorada. UHD",
+        image:"https://http2.mlstatic.com/D_NQ_NP_2X_761965-MLA50513249783_062022-F.webp",
+        name:"TV Samsung 49",
+        price:700,
+        stock:20,
+    },
+    {
+        category:"air",
+        categoryId:"3",
+        description:"Potencia de refrigeración de 800W y de calefacción de 700W.",
+        image:"https://http2.mlstatic.com/D_NQ_NP_2X_946856-MLA46835143793_072021-F.webp",
+        name:"Aire acondicionado Split BHH",
+        price:500,
+        stock:25,
+    },
+    {
+        category:"refrigerator",
+        categoryId:"4",
+        description:"Cuenta con organizador de botellas, porta latas y huevera.",
+        image:"https://http2.mlstatic.com/D_NQ_NP_2X_709487-MLA47513458607_092021-F.webp",
+        name:"Heladera inverter no frost Whirlpool WRM57K2",
+        price:270,
+        stock:7
+    },
+    {
+        category:"tool",
+        categoryId:"5",
+        description:"Viene con maletín de transporte.",
+        image:"https://http2.mlstatic.com/D_NQ_NP_2X_938978-MLA42786643906_072020-F.webp",
+        name:"Taladro inalámbrico de 10mm Black+Decker CD121K",
+        price:138,
+        stock:47,
+    },
+];
