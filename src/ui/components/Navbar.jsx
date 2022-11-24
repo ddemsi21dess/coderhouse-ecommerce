@@ -59,7 +59,7 @@ export const Navbar = () => {
 
                     <li className={`nav-menu-item ${ activeHome ? 'nav-menu-link_active' : ''}`}  onClick={showHomePage}>
                         <a className="nav-menu-link nav-link">Inicio</a>
-                    </li>
+                    </li> 
 
                     {
                     
@@ -78,10 +78,6 @@ export const Navbar = () => {
 
 
                 <ul className="nav-menu">
-                    {/* <li className="nav-menu-item" key='search'>
-                        <input className='input-search' placeholder='Buscar' type='text' onChange={onHandleChange}></input>
-                        <button className='search-button'>Ir</button>
-                    </li> */}
                     <li className="nav-menu-item ">
                         <a className="logo nav-link" onClick={showCartPage}>
                            

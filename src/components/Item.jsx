@@ -57,26 +57,6 @@ export const Item = ({
             </div>
         </div>
 
-        {/* <div className='item-container'>
-            <div className='item-title'>
-              <h3>{name}</h3> 
-            </div>
-            <div className='item-price'>              
-              <h4>{`$  ${price}`}</h4>
-            </div>
-            <div className='item-image'>
-              <img src= {image} alt='producto' className='product-image' />   
-            </div>
-            <div className='item-selectors'>             
-              <ItemCount minBuyOrder={minBuyOrder} stockValue={availableStock} onAddProducts={onAddProducts} />
-            </div>
-            <div className='item-available-products'>
-              <h4>{`Productos disponibles: ${availableStock}`}</h4> 
-            </div>
-            <div className='item-title'>
-              <button className='details-btn' onClick={onHandleSeeDetails}>Ver detalles</button>
-            </div>
-        </div> */}
     </>
   )
 }
