@@ -1,4 +1,4 @@
-import { getFirestore , doc , updateDoc, collection, addDoc, getDocs } from 'firebase/firestore';
+import { getFirestore , doc , updateDoc, collection, addDoc, getDocs, deleteDoc } from 'firebase/firestore';
 import React, { useEffect , useState } from 'react'
 import { CartContext } from './CartContext';
 
@@ -13,6 +13,19 @@ export const CartProvider = ({ children }) => {
     /*----- firebase functions -------*/
     /*----- firebase functions -------*/
     /*----- firebase functions -------*/
+   
+
+    const getCartProducts = async () => {
+      const db = getFirestore();
+      const ordersCollection = collection(db,'orders');
+      let cartProducts = [];
+
+      await getDocs(ordersCollection).then((snapshot)=> {
+        cartProducts = snapshot.docs.map(doc => ({oid: doc.id,...doc.data()})); 
+      });
+      
+      setProducts(cartProducts);
+    }
 
     const addItem = async (item , quantity ) =>{
       const db = getFirestore();
@@ -46,81 +59,39 @@ export const CartProvider = ({ children }) => {
 
        // Step 6: Get and set all cart products to display on the cart page
        await getDocs(ordersCollection).then((snapshot)=> {
-        cartProducts = snapshot.docs.map(doc => ({oid: doc.id, ...doc.data()})); 
+        // cartProducts = snapshot.docs.map(doc => ({oid: doc.id, ...doc.data()})); 
+        cartProducts = snapshot.docs.map(doc => ({oid: doc.id,...doc.data()})); 
       });
       setProducts(cartProducts);
     }
-
-    const getCartProducts = async () => {
-      const db = getFirestore();
-      const q = collection(db,'orders');
+    const removeItem = async( item ) =>{
       
-      getDocs(q).then((snapshot)=> {
-        console.log("esto viene", snapshot.docs.map(doc => ({oid: doc.id, ...doc.data()})) ); 
-      });
+      const db = getFirestore();
 
-      return 1;
+      const productDoc = doc(db,'products',item.id);
+      await updateDoc(productDoc,{stock:item.initialStock});
+
+      await deleteDoc(doc(db, "orders", item.oid));
+      await getCartProducts();
+          
     }
 
-    //Cart
-    
-    const createOrderCollection = (item) => {
-      const db = getFirestore();  
-      const ordersCollection = collection(db,"orders");  
-      console.log("ordersCollection",ordersCollection);   
-      addDoc(ordersCollection,item).then(({ id })=> console.log("id added",id));
-
-    };
-
-  const updateCartProduct = (oid, orderStock) =>{
-      const db = getFirestore();
-      const orderDoc = doc(db,'orders',oid);
-      console.log("update orderStock",orderStock);
-      console.log("update oid",oid);
-      updateDoc(orderDoc,{stock:orderStock});
-    }
-
-
-    // Remaining Products
-    const subtractStock = ( item, productsAdded) =>{
-      const productId = item.id;
-      const currentStock = item.stock;
-      const db = getFirestore();
-      const productDoc = doc(db,'products',productId);
-      const remainingStock = currentStock - productsAdded;
-      updateDoc(productDoc,{stock:remainingStock});
   
-      console.log("subtractStock: I need to call to firebase to get the new available stock");
-    }
 
-    const getCartProduct = async(item,quantity) => {
-
-      const db = getFirestore();
-      const q = collection(db,'orders');
+    const clear = async () => {
       
-      await getDocs(q)
-      .then((snapshot)=> {
-        let currentOrderProducts =  snapshot.docs.map(doc => ({oid: doc.id, ...doc.data()})) 
+      const db = getFirestore();
+      await setProducts([]);
 
-        console.log("currentOrderProducts",currentOrderProducts); 
-      if (currentOrderProducts && currentOrderProducts.length > 0){
-        console.log("hay al menos una orden en el carrito",currentOrderProducts);
-        let productAlreadyInCart = currentOrderProducts.filter((doc) => doc.id === item.id);
+      // const ordersCollection = collection(db,'orders');
+      // let cartProducts = [];
 
-        console.log("productAlreadyInCart",productAlreadyInCart);
-        updateCartProduct(productAlreadyInCart[0].oid, productAlreadyInCart[0].stock + quantity )
-      }else{        
-        console.log("no hay ordenes en el carrito");
-        createOrderCollection(item);
-      }
-     
+      // // Step 1: Get all cart products
+      // await getDocs(ordersCollection).then((snapshot)=> {
+      //   cartProducts = snapshot.docs.map(doc => ({oid: doc.id, ...doc.data()})); 
+      // });
 
-        //currentCartProducts = snapshot.docs.filter((doc)=> doc.data().id !== productId);
-       
-      });
-
-     
-    };
+    }
 
     /*----- firebase functions -------*/
     /*----- firebase functions -------*/
@@ -129,54 +100,24 @@ export const CartProvider = ({ children }) => {
     /*----- firebase functions -------*/
   
 
-    // const addItem = ( item , quantity ) =>{
-    //   //call(item , quantity );
-    //   // getCartProduct(item,quantity);
-    //  // subtractStock(item,quantity );  /*----- firebase functions -------*/
-    //  // sendOrder(item);                /*----- firebase functions -------*/
-
-
-    //   // const newItem = [{...item , quantity }];
-
-    //   // if (isInCart(item.id)){
-    //   //   const currentQuantity = products.find(product => product.id === item.id).quantity;
-    //   //   setProducts( current =>
-    //   //     current.map( prod =>            
-    //   //       (
-    //   //         prod.id === item.id
-    //   //         ? { ...prod , quantity: currentQuantity + quantity }
-    //   //         : prod
-    //   //     ))
-    //   //   )
-    //   // }else{
-    //   //   setProducts( prev => [...prev, ...newItem] );
-    //   // }
-    // }
-
-    const removeItem = ( itemId ) =>{
-      setProducts(current => current.filter((item)=> item.id !== itemId));    
-    }
-
-    const clear = () => {
-      setProducts([]);
-    }
-
-    const isInCart = ( id ) => !!products.find(item => item.id === id);
-
-    // useEffect(() => {
-    //   let counter = 0;
-    //   let price = 0;
-
-    //   products.forEach( (item)=> {
-    //     counter += item.quantity;
-    //     price += item.quantity * item.price
-    //   });
-      
-    //   setTotalProducts(counter);
-    //   setTotalPrice(price);
-    // }, [products])
     
+    
+    useEffect(() => { getCartProducts() }, []);
 
+    useEffect(() => {
+      let counter = 0;
+      let price = 0;
+
+      products.forEach( (item)=> {
+        counter += item.orderStock;
+        price += item.orderStock * item.price
+      });
+      
+      setTotalProducts(counter);
+      setTotalPrice(price);
+    }, [products])
+    
+    
     return (
       <CartContext.Provider value ={{ addItem , clear, removeItem, total: totalProducts, products, totalPrice }}>
           {children}

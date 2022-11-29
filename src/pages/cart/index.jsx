@@ -7,9 +7,8 @@ import { CartContext } from '../../context/CartContext';
 
 export const Cart = () => {
 
-  const { products, clear,totalPrice,total } = useContext(CartContext);
+  const { products , clear , totalPrice , total } = useContext(CartContext);
   const navigate = useNavigate();
-
   return (
     <>
     <FirebaseTesting/>
@@ -34,6 +33,7 @@ export const Cart = () => {
         <div className='cart-container'>      
           <table>
             <thead>
+              
               <tr>
                 <td>Producto</td>
                 <td>Precio unitario</td>
@@ -54,7 +54,7 @@ export const Cart = () => {
 
         <h3  className='cart-container-totals cart-title'>Resumen de la compra</h3>  
         <div className='cart-container'>   
-          {/* <table>
+          <table>
               <thead>
                 <tr>
                   <td>Cantidad de Productos</td>
@@ -67,7 +67,7 @@ export const Cart = () => {
                   <td>{`$ ${totalPrice}`}</td>
                 </tr>
               </tbody>
-            </table> */}
+            </table>
           </div>
       
       </div> 

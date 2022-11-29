@@ -9,24 +9,26 @@ export const ItemCart = ({ product }) => {
     <>
       {
        product ?     
-       <tr>
-         <td>
-           <span>{` ${product.name}` }</span>     
-         </td>
-         <td>
-           {/* {`${product.price}`} */}
-         </td>
-         <td> 
-           {/* <span>{product.quantity ? product.quantity : 'NaN' }</span> */}
-         </td>
-         <td>
-           {/* <button className='remove-product' onClick={() => removeItem(product.id)}>Eliminar</button> */}
-         </td>
-         <td>
-           {/* <span>{ `$ ${ product.quantity ? product.price * product.quantity : 'NaN'}` }</span> */}
-         </td>
-        
-       </tr>      
+       <tbody>
+        <tr>
+          <td>
+            <span>{` ${product.name}` }</span>     
+          </td>
+          <td>
+            {`${product.price}`}
+          </td>
+          <td> 
+            <span>{product.orderStock }</span>
+          </td>
+          <td>
+            <button className='remove-product' onClick={() => removeItem(product)}>Eliminar</button>
+          </td>
+          <td>
+            <span>{ `$ ${ product.price * product.orderStock }` }</span>
+          </td>
+          
+        </tr>      
+       </tbody>
      
      
      : ''
