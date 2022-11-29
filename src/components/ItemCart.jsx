@@ -14,16 +14,16 @@ export const ItemCart = ({ product }) => {
            <span>{` ${product.name}` }</span>     
          </td>
          <td>
-           {`${product.price}`}
+           {/* {`${product.price}`} */}
          </td>
          <td> 
-           <span>{product.quantity ? product.quantity : 'NaN' }</span>
+           {/* <span>{product.quantity ? product.quantity : 'NaN' }</span> */}
          </td>
          <td>
-           <button className='remove-product' onClick={() => removeItem(product.id)}>Eliminar</button>
+           {/* <button className='remove-product' onClick={() => removeItem(product.id)}>Eliminar</button> */}
          </td>
          <td>
-           <span>{ `$ ${product.price * product.quantity}` }</span>
+           {/* <span>{ `$ ${ product.quantity ? product.price * product.quantity : 'NaN'}` }</span> */}
          </td>
         
        </tr>      

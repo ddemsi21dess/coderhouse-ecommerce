@@ -22,8 +22,7 @@ export const Item = ({
   const onHandleSeeDetails = () => navigate(`/item/${id}`);
 
   const onAddProducts = (counter) =>{
-    addItem(product , counter);
-  
+    addItem(product , counter);  
   }
 
   useEffect(() => {

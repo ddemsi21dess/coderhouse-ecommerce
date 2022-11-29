@@ -45,7 +45,7 @@ export const Cart = () => {
             </thead>
             {
               products.map( product=>(
-                <ItemCart product = { product }/>      
+                <ItemCart product = { product } key={product.id}/>      
               ))
             }
           </table>
@@ -54,20 +54,20 @@ export const Cart = () => {
 
         <h3  className='cart-container-totals cart-title'>Resumen de la compra</h3>  
         <div className='cart-container'>   
-        <table>
-            <thead>
-              <tr>
-                <td>Cantidad de Productos</td>
-                <td>Total</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{total}</td>
-                <td>{`$ ${totalPrice}`}</td>
-              </tr>
-            </tbody>
-          </table>
+          {/* <table>
+              <thead>
+                <tr>
+                  <td>Cantidad de Productos</td>
+                  <td>Total</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>{total}</td>
+                  <td>{`$ ${totalPrice}`}</td>
+                </tr>
+              </tbody>
+            </table> */}
           </div>
       
       </div> 

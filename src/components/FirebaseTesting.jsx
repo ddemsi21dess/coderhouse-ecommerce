@@ -9,10 +9,8 @@ export const FirebaseTesting = () => {
 
 
     const removeCollection = () => {
-
         const db = getFirestore();
         const ordersCollection = collection(db,"orders").delete();
-        //collection.delete();
 
     }
     const removeDoc = () => {
@@ -39,6 +37,14 @@ export const FirebaseTesting = () => {
       console.log(orderDoc);
       updateDoc(orderDoc,{total:200});
     }
+
+    // const updateStock = () =>{
+    //   const db = getFirestore();
+    //   const orderDoc = doc(db,'products','AzAnANffv0czD2nqeEnO');
+    //   console.log(orderDoc);
+    //   updateDoc(orderDoc,{stock:9});
+    // }
+  
   
     const sendOrder = ()=>{
       const order = {
@@ -63,12 +69,13 @@ export const FirebaseTesting = () => {
 
   return (
     <>
+    <button className='remove-all-products' onClick={()=> sendOrder()}>Create Orders</button>
     
-    <button className='back-to-main' onClick={()=> updateCollection()}>Update Doc</button>
-    <button className='remove-all-products' onClick={()=> sendOrder()}>Add Doc</button>
-    <button className='remove-all-products' onClick={()=> batchOrder()}>Batch</button>
-    <button className='remove-all-products' onClick={()=> removeDoc()}>Delete Doc</button>
-    <button className='remove-all-products' onClick={()=> removeCollection()}>Delete Collection</button>
+    {/* <button className='back-to-main' onClick={()=> updateCollection()}>Update Doc</button>
+    <button className='remove-all-products' onClick={()=> batchOrder()}>Batch</button> */}
+    {/* <button className='remove-all-products' onClick={()=> updateStock()}>Stock</button> */}
+    {/* <button className='remove-all-products' onClick={()=> removeDoc()}>Delete Doc</button>
+    <button className='remove-all-products' onClick={()=> removeCollection()}>Delete Collection</button> */}
     </>
   )
 }
