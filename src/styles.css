@@ -612,10 +612,26 @@
     font-weight: bold;
     color: #8c8c8c;
 }
+.card-adding-product {   
+  margin-top:10px; 
+  font-size: 14px;
+  font-weight: bold;
+  color: #8c8c8c;
+  height: 15px;
+}
 
 .card-description {   
   margin-top:10px; 
   font-size: 18px;
   font-weight: bold;
   color: #524e4e;
+}
+
+
+
+button:disabled {
+  color: #eee;
+  background-color: #8c8c8c;
+  opacity: 0.5;
+  cursor: not-allowed;
 }

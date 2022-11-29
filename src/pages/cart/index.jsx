@@ -1,7 +1,6 @@
 
 import React, { useContext }  from 'react'
 import { useNavigate } from 'react-router-dom';
-import { FirebaseTesting } from '../../components/FirebaseTesting';
 import { ItemCart } from '../../components/ItemCart';
 import { CartContext } from '../../context/CartContext';
 
@@ -11,7 +10,6 @@ export const Cart = () => {
   const navigate = useNavigate();
   return (
     <>
-    <FirebaseTesting/>
     {
       products.length === 0 ?   
 

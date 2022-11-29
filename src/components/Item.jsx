@@ -1,37 +1,27 @@
-import React, { useState , useContext, useEffect } from 'react'
+import React, { useState , useContext } from 'react'
 
 import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import { ItemCount } from './ItemCount'
 
-export const Item = ({
-  id
-  ,name
-  ,price
-  ,stock
-  ,minBuyOrder
-  ,image
-  ,product
-}) => {
+export const Item = ({ item }) => {
   
-  const { addItem , products } =  useContext(CartContext);
+  const {id , name , price , stock , image } = item;
+
+  const [currentStock, setCurrentStock] = useState(stock);
+  const [addingItem, setAddingItem] = useState(false);
+  const { addItem } =  useContext(CartContext);
 
   const navigate = useNavigate();
 
-  const [availableStock, setAvailableStock] = useState(stock)
   const onHandleSeeDetails = () => navigate(`/item/${id}`);
 
-  const onAddProducts = (counter) =>{
-    addItem(product , counter);  
+  const onAddItem = async (counter) => {
+    setAddingItem(true);
+    await addItem(item,counter);
+    setCurrentStock(prev => prev - counter );
+    setAddingItem(false);
   }
-
-  useEffect(() => {
-    const productInCart = products.find(item => item.id === id);
-    if ( !!productInCart ){
-
-      setAvailableStock(productInCart.stock - productInCart.quantity);
-    }
-  }, [products])
   
   return (
     <>
@@ -46,13 +36,20 @@ export const Item = ({
             </div>
             
             <div className="card-content">              
-                <p className='card-available-products'>{`Stock Disponible: ${availableStock}`}</p>
+                <p className='card-available-products'>{`Stock Disponible: ${currentStock}`}</p>
                 <div className='card-selectors'>
-                  <ItemCount minBuyOrder={minBuyOrder} stockValue={availableStock} onAddProducts={onAddProducts} />
+                  <ItemCount stockValue={currentStock} onAddProducts={ (counter) => onAddItem(counter)} disabled={addingItem}/>
                 </div>
                 <p className=''>  
-                  <button className='details-btn' onClick={onHandleSeeDetails}>Ver +</button>
+                  <button className='details-btn' onClick={onHandleSeeDetails} disabled = {addingItem} >Ver +</button>
                 </p>
+                
+                {
+                  addingItem 
+                  ?   <p className='card-adding-product'> Añadiendo al carrito... </p>  
+                  : <p className='card-adding-product'></p> 
+                }
+               
             </div>
         </div>
 

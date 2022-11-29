@@ -7,8 +7,10 @@ import { Loading } from '../ui/components';
 
 export const ItemList = ({ categoryId }) => {
   
-  const { items, isLoading } = useFetch(categoryId,null);
+  // const { items, isLoading } = useFetch(categoryId,null);
 
+  const { items, isLoading } = useFetchByCategory(categoryId);
+  
   return (
     <>     
       <div className='list-items'>
@@ -19,8 +21,7 @@ export const ItemList = ({ categoryId }) => {
           items.map(product=>(
             <Item 
                 key={product.id}  
-                {...product}
-                product = {product}
+                item = { product }
             />
           ))
         }
