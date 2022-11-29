@@ -1,5 +1,5 @@
-import { getFirestore , doc , updateDoc, collection, addDoc, getDocs, deleteDoc } from 'firebase/firestore';
 import React, { useEffect , useState } from 'react'
+import { getFirestore , doc , updateDoc, collection, addDoc, getDocs, deleteDoc } from 'firebase/firestore';
 import { CartContext } from './CartContext';
 
 export const CartProvider = ({ children }) => {
@@ -8,11 +8,6 @@ export const CartProvider = ({ children }) => {
     const [totalProducts, setTotalProducts] = useState(0);
     const [totalPrice, setTotalPrice] = useState(0);
 
-    /*----- firebase functions -------*/
-    /*----- firebase functions -------*/
-    /*----- firebase functions -------*/
-    /*----- firebase functions -------*/
-    /*----- firebase functions -------*/
    
 
     const getCartProducts = async () => {
@@ -23,7 +18,7 @@ export const CartProvider = ({ children }) => {
       await getDocs(ordersCollection).then((snapshot)=> {
         cartProducts = snapshot.docs.map(doc => ({oid: doc.id,...doc.data()})); 
       });
-      
+      console.log("cartProducts --> this trigger one time per item in cart",cartProducts);
       setProducts(cartProducts);
     }
 
@@ -72,33 +67,14 @@ export const CartProvider = ({ children }) => {
       await updateDoc(productDoc,{stock:item.initialStock});
 
       await deleteDoc(doc(db, "orders", item.oid));
-      await getCartProducts();
+      getCartProducts();
           
-    }
+    }  
 
-  
-
-    const clear = async () => {
-      
-      const db = getFirestore();
-      await setProducts([]);
-
-      // const ordersCollection = collection(db,'orders');
-      // let cartProducts = [];
-
-      // // Step 1: Get all cart products
-      // await getDocs(ordersCollection).then((snapshot)=> {
-      //   cartProducts = snapshot.docs.map(doc => ({oid: doc.id, ...doc.data()})); 
-      // });
-
-    }
-
-    /*----- firebase functions -------*/
-    /*----- firebase functions -------*/
-    /*----- firebase functions -------*/
-    /*----- firebase functions -------*/
-    /*----- firebase functions -------*/
-  
+    const clear = () => {
+      products.forEach((item)=> removeItem(item));
+      getCartProducts();
+    } 
 
     
     
