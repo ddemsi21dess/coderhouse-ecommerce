@@ -6,9 +6,6 @@ import { Item } from './Item'
 import { Loading } from '../ui/components';
 
 export const ItemList = ({ categoryId }) => {
-  
-  // const { items, isLoading } = useFetch(categoryId,null);
-
   const { items, isLoading } = useFetchByCategory(categoryId);
   
   return (

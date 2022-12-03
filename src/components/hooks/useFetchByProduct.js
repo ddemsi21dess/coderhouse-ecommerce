@@ -1,47 +1,32 @@
 
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import '../../firebase/config';
-import { getFirestore, doc, getDoc, collection, getDocs, query, where } from "firebase/firestore"
-import { CartContext } from '../../context/CartContext';
+import { getFirestore, doc, getDoc } from "firebase/firestore"
 
 export const useFetchByProduct = (productId) => {
 
-    const { products } = useContext(CartContext);
-    const [items, setItems] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [availableStock, setAvailableStock] = useState(1);
-    
-    const isInCart = (items) => !!items.find(item => item.id === productId);  
+  
+  const [item, setItem] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-      if (!productId) return;
-
-      setItems([]);
-      const db = getFirestore();
-      
-      if (productId){
-
-        if (isInCart(products)){
-          const productsInCart = products.find((product)=> product.id === productId );
-          setAvailableStock(productsInCart.stock - productsInCart.quantity);
-        }
-        
-        const item = doc(db,'products',productId);
-        getDoc(item)
-            .then((snapshot)=>{
-               setItems({ id:snapshot.id, ...snapshot.data() });        
-                if (!isInCart(products)) {
-                  setAvailableStock(snapshot.data().stock); 
-                }       
-               setIsLoading(false);
-            })
-      }
-
-    }, [productId])
+  const callFirebase = async() => {
+    console.log("callFirebase with the productId:",productId);
+    setIsLoading(true);    
+    const db = getFirestore();
+    const item = doc(db,'products',productId);
+    await getDoc(item)
+        .then((snapshot)=>{
+           setItem({ id:snapshot.id, ...snapshot.data() }); 
+           setIsLoading(false);
+        })
+  }
 
 
-    
-    return { items, isLoading, availableStock }
+  useEffect(() => {
+    if (productId) callFirebase();    
+  }, [productId]);    
 
+
+  return { item, isLoading }
 }

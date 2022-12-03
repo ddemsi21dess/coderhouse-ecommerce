@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../context/CartContext';
 import { ItemCount } from './ItemCount'
 
-export const Item = ({ item }) => {
+export const Item = ({ item , showDeatils = false }) => {
   
-  const {id , name , price , stock , image } = item;
+  const {id , name , price , stock , image, description } = item;
 
   const [currentStock, setCurrentStock] = useState(stock);
   const [addingItem, setAddingItem] = useState(false);
@@ -22,7 +22,7 @@ export const Item = ({ item }) => {
     setCurrentStock(prev => prev - counter );
     setAddingItem(false);
   }
-  
+
   return (
     <>
 
@@ -40,15 +40,18 @@ export const Item = ({ item }) => {
                 <div className='card-selectors'>
                   <ItemCount stockValue={currentStock} onAddProducts={ (counter) => onAddItem(counter)} disabled={addingItem}/>
                 </div>
-                <p className=''>  
-                  <button className='details-btn' onClick={onHandleSeeDetails} disabled = {addingItem} >Ver +</button>
-                </p>
+
+                {
+                  showDeatils 
+                  ? <p className='card-description'>{`${description}`}</p> 
+                  : <button className='details-btn' onClick={onHandleSeeDetails} disabled = {addingItem} >Ver +</button>
+                }
                 
                 {
                   addingItem 
                   ?   <p className='card-adding-product'> Añadiendo al carrito... </p>  
                   : <p className='card-adding-product'></p> 
-                }
+                }            
                
             </div>
         </div>

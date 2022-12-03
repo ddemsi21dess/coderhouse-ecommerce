@@ -24,7 +24,7 @@ export const ItemCount = ({  stockValue , onAddProducts , minBuyOrder = 1, disab
         <button className='counter-button add-button'  onClick={onAdd} disabled= {disabled}>+</button>
     </div>
     <div className='item-count-container'>
-      <button className= {counter <= stockValue ? 'add-product' : 'add-product-disabled'} onClick={onAddProductsCart} disabled= {disabled }>Agregar al Carrito</button>  
+      <button className= {counter <= stockValue ? 'add-product' : 'add-product-disabled'} onClick={onAddProductsCart} disabled= {disabled}>Agregar al Carrito</button>  
     </div>
    
     </>

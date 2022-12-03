@@ -2,17 +2,18 @@ import React, { useContext } from 'react'
 
 import { CartContext } from '../context/CartContext';
 import { Loading } from '../ui/components';
-import { useFetch } from './hooks';
+import { useFetch, useFetchByProduct } from './hooks';
+import { Item } from './Item';
 import { ItemCount } from './ItemCount';
 
 export const ItemDetail = ({ productId }) => {
   const { addItem } =  useContext(CartContext);
 
-  const { items, isLoading, availableStock } =  useFetch(null,productId);
+  const { item, isLoading } =  useFetchByProduct(productId);
 
-  const onAddProducts = (counter) => addItem(items,counter);
+  const onAddProducts = (counter) => addItem(item,counter);
 
-  const { name ,price ,image ,minBuyOrder, description  } = items
+  const { name ,price ,image ,minBuyOrder, description  } = item
 
   return (
     <>
@@ -20,8 +21,8 @@ export const ItemDetail = ({ productId }) => {
       isLoading 
         ? <Loading />     
         :    
-        
-        <div className='card-details' >
+        <Item item = { item } showDeatils = { true }/>
+      /*  <div className='card-details' >
           <div className="card-content-details">
             <p className='card-name'>{name}</p>
             <p className='card-price'>{`$  ${price}`}</p>
@@ -34,13 +35,13 @@ export const ItemDetail = ({ productId }) => {
             <p className='card-description'>{`${description}`}</p>
           </div>
           
-          <div className="card-content-details">              
+           <div className="card-content-details">              
               <p className='card-available-products'>{`Stock Disponible: ${availableStock}`}</p>
               <div className='card-selectors'>
                 <ItemCount minBuyOrder={minBuyOrder} stockValue={availableStock} onAddProducts={onAddProducts} />
               </div>
-          </div>
-      </div>
+          </div> 
+      </div>*/
     }
     </>
   )
