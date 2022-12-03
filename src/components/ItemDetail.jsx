@@ -1,19 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 
-import { CartContext } from '../context/CartContext';
 import { Loading } from '../ui/components';
-import { useFetch, useFetchByProduct } from './hooks';
+import { useFetchByProduct } from './hooks';
 import { Item } from './Item';
-import { ItemCount } from './ItemCount';
 
 export const ItemDetail = ({ productId }) => {
-  const { addItem } =  useContext(CartContext);
-
   const { item, isLoading } =  useFetchByProduct(productId);
-
-  const onAddProducts = (counter) => addItem(item,counter);
-
-  const { name ,price ,image ,minBuyOrder, description  } = item
 
   return (
     <>

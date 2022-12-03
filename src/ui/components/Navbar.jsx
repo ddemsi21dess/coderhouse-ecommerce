@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect , useState, useContext } from 'react'
+import React, { useEffect , useState, useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { CartContext } from '../../context/CartContext';
@@ -10,9 +10,13 @@ import { menuItems } from '../../data/menuItems';
 
 import LoginImage from './../resources/login.png';
 import Logo from './../resources/logo.png';
+import { useFetchCategories } from '../../components/hooks/useFetchCategories';
+
+import { LoadingCategories } from './LoadingCategories';
 
 export const Navbar = () => {
 
+  const { categories, isLoading }  = useFetchCategories();
   const { total } =  useContext(CartContext);  
   const navigate = useNavigate();
   const { pathname } = useLocation();
@@ -62,8 +66,10 @@ export const Navbar = () => {
                     </li> 
 
                     {
-                    
-                        menuItems.map(item =>(                
+
+                        isLoading ? <LoadingCategories/>
+                        :
+                        categories.map(item =>(                
                             <NavbarItem 
                                 name={item.name} 
                                 id={item.id} 

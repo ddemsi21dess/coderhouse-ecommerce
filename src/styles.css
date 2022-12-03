@@ -232,6 +232,14 @@
     font-family: sans-serif;    
   }
 
+  .loading-label-categories{
+    text-align: center;
+    font-size: 24px;
+    font-family: sans-serif;
+    color: white;
+    line-height: 65px;    
+  }
+
   /*------------*/
   /*-- Cart Widget ---*/
   /*------------*/
