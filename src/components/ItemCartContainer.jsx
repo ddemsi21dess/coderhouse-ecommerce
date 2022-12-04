@@ -46,7 +46,7 @@ export const ItemCartContainer = () => {
                             </thead>
                             {
                             products.map( product=>(
-                                <ItemCart product = { product } key={product.id}/>      
+                                <ItemCart product = { product } key={product.productId}/>      
                             ))
                             }
                         </table>
