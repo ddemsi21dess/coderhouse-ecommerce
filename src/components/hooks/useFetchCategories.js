@@ -20,13 +20,14 @@ export const useFetchCategories = () => {
     await getDocs(q)
     .then((snapshot)=> {    
       setCategories(snapshot.docs.map((doc)=> ({...doc.data()})));
-      console.log("snapshot.docs",snapshot.docs);
+    
       setIsLoading(false);
     });
     setIsLoading(false);  
   }
 
   useEffect(() => {
+    console.log("CATEGORIES");
     callFirebase();    
   }, []);    
 

@@ -643,3 +643,7 @@ button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+.loading-cart-container{
+  text-align: center;
+}

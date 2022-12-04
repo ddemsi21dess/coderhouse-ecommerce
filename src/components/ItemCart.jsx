@@ -1,9 +1,16 @@
-import React, { useContext }  from 'react'
+import React, { useContext, useState }  from 'react'
 import { CartContext } from '../context/CartContext'
 
 export const ItemCart = ({ product }) => {
   
   const { removeItem } = useContext(CartContext);
+
+  const [removingItem, setRemovingItem] = useState(false);
+  
+  const removeCurrentItem = () => {
+    setRemovingItem(true);
+    removeItem(product)
+  };
 
   return (
     <>
@@ -21,7 +28,7 @@ export const ItemCart = ({ product }) => {
             <span>{product.orderStock }</span>
           </td>
           <td>
-            <button className='remove-product' onClick={() => removeItem(product)}>Eliminar</button>
+            <button className='remove-product' onClick={removeCurrentItem } disabled={removingItem}>Eliminar</button>
           </td>
           <td>
             <span>{ `$ ${ product.price * product.orderStock }` }</span>

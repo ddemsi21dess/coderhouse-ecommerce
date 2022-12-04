@@ -10,7 +10,7 @@ import { menuItems } from '../../data/menuItems';
 
 import LoginImage from './../resources/login.png';
 import Logo from './../resources/logo.png';
-import { useFetchCategories } from '../../components/hooks/useFetchCategories';
+import { useFetchCategories } from '../../components/hooks';
 
 import { LoadingCategories } from './LoadingCategories';
 
