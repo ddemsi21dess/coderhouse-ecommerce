@@ -21,8 +21,8 @@ Se hace el build de la aplicación para producción y se crea la carpeta `build`
 
 
 ## Pre-requisitos
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Node.js > 16](https://nodejs.org/es/)
+- `Visual Studio Code` (https://code.visualstudio.com/)
+- `Node.js > 16` (https://nodejs.org/es/)
 
 ## Estructura de carpetas
 - `EcommerceApp.jsx` Componente inicial de toda la apliación.
