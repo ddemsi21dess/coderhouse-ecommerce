@@ -569,19 +569,20 @@
 }
 .card-image-container {
     display: flex;
-    flex:0vw;
+    /* flex:0vw; */
     overflow: hidden;
 }
 .card-image-details-container {
   display: flex;
-  flex:20vw;
+  /* flex:20vw; */
   overflow: hidden;
 }
 .card-description-container {
   display: flex;
+  flex:1;
   /* flex: 1; */
-  flex:0vw;
-  overflow: hidden;
+  /* flex:0vw; */
+  /* overflow: hidden; */
 }
 .card-image {
     width: 100%;    

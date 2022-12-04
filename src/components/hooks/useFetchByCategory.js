@@ -11,7 +11,6 @@ export const useFetchByCategory = (categoryId) => {
 
 
     const callFirebase = async() => {      
-      console.log("callFirebase with the categoryId:",categoryId);
       setIsLoading(true);    
       
       const db = getFirestore();
@@ -27,7 +26,6 @@ export const useFetchByCategory = (categoryId) => {
   
     const callFirebaseAll = async() => {
       
-      console.log("callFirebase All products  with the categoryId:",categoryId, " ");
       setIsLoading(true);    
       
       const db = getFirestore();
@@ -42,10 +40,8 @@ export const useFetchByCategory = (categoryId) => {
     }
     
     useEffect(() => {
-      console.log("use effect",categoryId);
       if (!categoryId) callFirebaseAll();
       if (categoryId) callFirebase();
-      // else callFirebaseAll();
     }, [categoryId]);    
 
   

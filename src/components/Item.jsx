@@ -26,16 +26,27 @@ export const Item = ({ item , showDeatils = false }) => {
   return (
     <>
 
-        <div className='card' >
-            <div className="card-content">
+        <div className= {showDeatils ? 'card-details' : 'card'} >
+            <div className= { showDeatils ? 'card-content-details' : 'card-content'}>
               <p className='card-name'>{name}</p>
               <p className='card-price'>{`$  ${price}`}</p>
             </div>
-            <div className="card-image-container">
-                <img className="card-image" src={image} alt={name} />
+            <div className= { showDeatils ? 'card-image-details-container' : 'card-image-container'}>
+                <img className={showDeatils ? 'card-image-details' : 'card-image'} src={image} alt={name} />
             </div>
             
-            <div className="card-content">              
+            <div className="card-content">    
+                {
+                  showDeatils 
+                  ? 
+                  <>
+                    <div className='card-description-container'>
+                      <p className='card-description'>{`${description}`}</p>
+                    </div>
+                  </>
+                 
+                  : <></>
+                }          
                 <p className='card-available-products'>{`Stock Disponible: ${currentStock}`}</p>
                 <div className='card-selectors'>
                   <ItemCount stockValue={currentStock} onAddProducts={ (counter) => onAddItem(counter)} disabled={addingItem}/>
@@ -43,13 +54,13 @@ export const Item = ({ item , showDeatils = false }) => {
 
                 {
                   showDeatils 
-                  ? <p className='card-description'>{`${description}`}</p> 
+                  ? <></>
                   : <button className='details-btn' onClick={onHandleSeeDetails} disabled = {addingItem} >Ver +</button>
                 }
                 
                 {
                   addingItem 
-                  ?   <p className='card-adding-product'> Añadiendo al carrito... </p>  
+                  ? <p className='card-adding-product'> Añadiendo al carrito... </p>  
                   : <p className='card-adding-product'></p> 
                 }            
                

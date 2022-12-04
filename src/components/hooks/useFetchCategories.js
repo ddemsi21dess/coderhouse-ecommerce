@@ -27,7 +27,6 @@ export const useFetchCategories = () => {
   }
 
   useEffect(() => {
-    console.log("CATEGORIES");
     callFirebase();    
   }, []);    
 

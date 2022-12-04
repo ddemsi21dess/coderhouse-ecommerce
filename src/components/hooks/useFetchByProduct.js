@@ -11,7 +11,6 @@ export const useFetchByProduct = (productId) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const callFirebase = async() => {
-    console.log("callFirebase with the productId:",productId);
     setIsLoading(true);    
     const db = getFirestore();
     const item = doc(db,'products',productId);
